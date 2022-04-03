@@ -8,7 +8,51 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid
+        Background="CadetBlue">
+        <TextBlock
+                Text="Villagers and Frontiers"
+            HorizontalAlignment="Center"
+            FontSize="100"
+            Margin="0,180,0,-180"/>
+        <StackPanel
+            HorizontalAlignment="Center" Margin="0,437,0,0"
+            Spacing="10"
+            
+            >
 
+            <Button
+                MaxHeight="80"
+                MaxWidth="200"
+                HorizontalAlignment="Center"
+                Background="DeepSkyBlue">
+                <TextBlock
+                    Text="PLAY"/>
+            </Button>
+            <Button
+                MaxHeight="80"
+                MaxWidth="200"
+                HorizontalAlignment="Center"
+                Background="DeepSkyBlue">
+                <TextBlock
+                    Text="Options"/>
+            </Button>
+            <Button
+                MaxHeight="80"
+                MaxWidth="200"
+                HorizontalAlignment="Center"
+                Background="DeepSkyBlue">
+                <TextBlock
+                    Text="Credits"/>
+            </Button>
+            <Button
+                MaxHeight="80"
+                MaxWidth="200"
+                HorizontalAlignment="Center"
+                Background="DeepSkyBlue">
+                <TextBlock
+                    Text="Quit"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
