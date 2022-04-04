@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -25,6 +26,20 @@ namespace DSI_Hito_5
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Loaded(object sender, RoutedEventArgs e)
+        {
+            var shadowColor = (Resources["ApplicationForegroundThemeBrush"] as SolidColorBrush).Color;
+            var compositor = ElementCompositionPreview.GetElementVisual(PlayButton).Compositor;
+
+            var dropShadow = compositor.CreateDropShadow();
+            dropShadow.Color = shadowColor;
+            dropShadow.BlurRadius = 20;
+            dropShadow.Opacity = 30.0f;
+
+            // var mask = PlayButton.GetAlphaMask();
+            // Mejor dejar Shadows para luego...
         }
     }
 }

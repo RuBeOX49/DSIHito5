@@ -5,11 +5,13 @@
     xmlns:local="using:DSI_Hito_5"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid
-        Background="CadetBlue">
+        Background="MidnightBlue">
         <TextBlock
                 Text="Villagers and Frontiers"
             HorizontalAlignment="Center"
@@ -18,40 +20,55 @@
         <StackPanel
             HorizontalAlignment="Center" Margin="0,437,0,0"
             Spacing="10"
-            
+            Width="500"
             >
 
             <Button
-                MaxHeight="80"
-                MaxWidth="200"
-                HorizontalAlignment="Center"
-                Background="DeepSkyBlue">
+                x:Name="PlayButton"
+                    Height="100"
+                    Width="400"
+                    HorizontalAlignment="Center"
+                    Background="DodgerBlue"
+                    CornerRadius="40"
+                    Loaded="Button_Loaded">
                 <TextBlock
-                    Text="PLAY"/>
+                        Text="PLAY"
+                        FontSize="50"/>
+            </Button>
+
+            <Button
+                Height="50"
+                Width="300"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Background="Transparent"
+                CornerRadius="20"
+                >
+                <TextBlock
+                    Text="Options"
+                    FontSize="30"/>
             </Button>
             <Button
-                MaxHeight="80"
-                MaxWidth="200"
+                Height="50"
+                Width="300"
                 HorizontalAlignment="Center"
-                Background="DeepSkyBlue">
+                VerticalAlignment="Bottom"
+                Background="Transparent"
+                CornerRadius="20">
                 <TextBlock
-                    Text="Options"/>
+                    Text="Credits"
+                    FontSize="30"/>
             </Button>
             <Button
-                MaxHeight="80"
-                MaxWidth="200"
+                Height="50"
+                Width="300"
                 HorizontalAlignment="Center"
-                Background="DeepSkyBlue">
+                VerticalAlignment="Bottom"
+                Background="Transparent"
+                CornerRadius="20">
                 <TextBlock
-                    Text="Credits"/>
-            </Button>
-            <Button
-                MaxHeight="80"
-                MaxWidth="200"
-                HorizontalAlignment="Center"
-                Background="DeepSkyBlue">
-                <TextBlock
-                    Text="Quit"/>
+                    Text="Quit"
+                    FontSize="30"/>
             </Button>
         </StackPanel>
     </Grid>
