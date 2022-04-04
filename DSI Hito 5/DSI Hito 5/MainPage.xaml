@@ -30,7 +30,8 @@
                     HorizontalAlignment="Center"
                     Background="DodgerBlue"
                     CornerRadius="40"
-                    Loaded="Button_Loaded">
+                    Loaded="Button_Loaded"
+                    Click="PlayButton_Click">
                 <TextBlock
                         Text="PLAY"
                         FontSize="50"/>

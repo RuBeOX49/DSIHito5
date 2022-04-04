@@ -42,5 +42,10 @@ namespace DSI_Hito_5
             // Mejor dejar Shadows para luego...
             // https://nicksnettravels.builttoroam.com/custom-shadows/ prob lo mejor
         }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PlayingPage));
+        }
     }
 }
