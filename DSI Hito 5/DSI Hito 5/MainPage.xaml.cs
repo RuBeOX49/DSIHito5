@@ -40,6 +40,7 @@ namespace DSI_Hito_5
 
             // var mask = PlayButton.GetAlphaMask();
             // Mejor dejar Shadows para luego...
+            // https://nicksnettravels.builttoroam.com/custom-shadows/ prob lo mejor
         }
     }
 }
