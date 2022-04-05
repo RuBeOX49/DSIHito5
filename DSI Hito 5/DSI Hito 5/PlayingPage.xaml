@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Margin="40">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
@@ -20,23 +20,43 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Invest" Height="80" Width="80" Margin="0,0,20,0"/>
-            <Button Content="Ascensos" Height="80" Width="80" Margin="20,0,0,0"/>
+            <Button Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10"/>
+            <Button Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10"/>
         </StackPanel>
         
         <Button Content="End Turn"
                 Grid.Column="2"
                 Grid.Row="1"
                 HorizontalAlignment="Right" 
-                Height="80" Width="80" 
+                Height="100" Width="100" 
                 Margin="0,0,20,0"
-                Click="EndTurnButton_Click"/>
+                Click="EndTurnButton_Click"
+                CornerRadius="10"
+                BorderBrush="SpringGreen" BorderThickness="10"/>
 
-        <Ellipse Height="100" Stroke="Red" Width="100" Fill="DarkBlue" Grid.Row="1"/>
+        <Ellipse Height="150"
+                 Width="150"
+                 Stroke="RoyalBlue"
+                 StrokeThickness="10"
+                 Fill="MidnightBlue"
+                 Grid.Row="1"
+                 />
         
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Turn" FontSize="25"/>
-            <TextBlock Text="{x:Bind turnNumber, Mode=OneWay}" FontSize="25"/>
+            <TextBlock Text="Turn" FontSize="40"/>
+            <TextBlock Text="{x:Bind turnNumber, Mode=OneWay}" FontSize="35" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                <TextBlock Text="$" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold"/>
+                <TextBlock Text="{x:Bind moneyCount, Mode=OneWay}" Margin="10, 0, 0, 0" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                <TextBlock Text="+ $" FontSize="25" HorizontalAlignment="Center" FontWeight="ExtraBold"/>
+                <TextBlock Text="{x:Bind moneyPerRound, Mode=OneWay}" FontSize="25" HorizontalAlignment="Center" FontWeight="ExtraBold"/>
+                <TextBlock Text="/turn" FontSize="25" HorizontalAlignment="Center" FontWeight="ExtraBold"/>
+            </StackPanel>
         </StackPanel>
         
 

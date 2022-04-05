@@ -24,17 +24,23 @@ namespace DSI_Hito_5
     public sealed partial class PlayingPage : Page, INotifyPropertyChanged
     {
         public int turnNumber;
+        public int moneyCount;
+        public int moneyPerRound;
         public event PropertyChangedEventHandler PropertyChanged;
         public PlayingPage()
         {
             this.InitializeComponent();
             turnNumber = 1;
+            moneyCount = 10;
+            moneyPerRound = 5;
         }
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs e)
         {
             turnNumber++;
+            moneyCount += moneyPerRound;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(turnNumber)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(moneyCount)));
         }
         public interface INotifyPropertyChanged
         {
