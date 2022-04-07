@@ -27,12 +27,23 @@ namespace DSI_Hito_5
         public int moneyCount;
         public int moneyPerRound;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        enum Menu
+        {
+            None,
+            Upgrade,
+            Villagers
+        }
+
+        Menu openMenu;
+
         public PlayingPage()
         {
             this.InitializeComponent();
             turnNumber = 1;
             moneyCount = 10;
             moneyPerRound = 5;
+            openMenu = Menu.None;
         }
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs e)
@@ -41,6 +52,7 @@ namespace DSI_Hito_5
             moneyCount += moneyPerRound;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(turnNumber)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(moneyCount)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
         }
         public interface INotifyPropertyChanged
         {
@@ -50,11 +62,19 @@ namespace DSI_Hito_5
         private void UpgradeButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Upgrades));
+            openMenu = Menu.Upgrade;
+            UpgradeMenu.Visibility = Visibility.Visible;
         }
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Villagers));
+        }
+
+        private void UpgradeBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            openMenu = Menu.None;
+            UpgradeMenu.Visibility = Visibility.Collapsed;
         }
     }
 }
