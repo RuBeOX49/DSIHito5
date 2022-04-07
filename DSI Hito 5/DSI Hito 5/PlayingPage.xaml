@@ -20,8 +20,8 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10"/>
-            <Button Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10"/>
+            <Button Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="UpgradeButton_Click"/>
+            <Button Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="VillagersButton_Click"/>
         </StackPanel>
         
         <Button Content="End Turn"
@@ -43,8 +43,8 @@
                  />
         
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Turn" FontSize="40"/>
-            <TextBlock Text="{x:Bind turnNumber, Mode=OneWay}" FontSize="35" HorizontalAlignment="Center"/>
+            <TextBlock Text="Turn" FontSize="40" Foreground="White"/>
+            <TextBlock Text="{x:Bind turnNumber, Mode=OneWay}" FontSize="35" HorizontalAlignment="Center" Foreground="White"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" VerticalAlignment="Top">

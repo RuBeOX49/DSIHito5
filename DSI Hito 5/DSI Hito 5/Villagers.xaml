@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="DSI_Hito_5.Villagers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DSI_Hito_5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Rectangle Fill="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"/>
+        <Button FontFamily="Segoe MDL2 Assets"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Height="100" Width="100" 
+                Margin="50"
+                Click="BackButton_Click"
+                CornerRadius="10"
+                BorderBrush="SpringGreen" BorderThickness="10"
+                Background="Black"
+                Foreground="White">
+            <SymbolIcon Symbol="Back" Foreground="White"/>
+        </Button>
+    </Grid>
+</Page>

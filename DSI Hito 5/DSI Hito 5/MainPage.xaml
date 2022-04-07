@@ -16,6 +16,7 @@
                 Text="Villagers and Frontiers"
             HorizontalAlignment="Center"
             FontSize="100"
+            Foreground="White"
             Margin="0,180,0,-180"/>
         <StackPanel
             HorizontalAlignment="Center" Margin="0,437,0,0"
@@ -30,6 +31,7 @@
                     HorizontalAlignment="Center"
                     Background="DodgerBlue"
                     CornerRadius="40"
+                    Foreground="White"
                     Loaded="Button_Loaded"
                     Click="PlayButton_Click">
                 <TextBlock
@@ -43,6 +45,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
+                Foreground="White"
                 CornerRadius="20"
                 >
                 <TextBlock
@@ -55,6 +58,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
+                Foreground="White"
                 CornerRadius="20">
                 <TextBlock
                     Text="Credits"
@@ -66,6 +70,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
+                Foreground="White"
                 CornerRadius="20">
                 <TextBlock
                     Text="Quit"

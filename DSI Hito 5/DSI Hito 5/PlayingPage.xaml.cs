@@ -46,5 +46,15 @@ namespace DSI_Hito_5
         {
             event PropertyChangedEventHandler PropertyChanged;
         }
+
+        private void UpgradeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Upgrades));
+        }
+
+        private void VillagersButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Villagers));
+        }
     }
 }
