@@ -62,20 +62,14 @@ namespace DSI_Hito_5
 
         private void UpgradeButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Upgrades));
             openMenu = Menu.Upgrade;
+            Frame.Navigate(typeof(Upgrades));
             // UpgradeMenu.Visibility = Visibility.Visible;
         }
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Villagers));
-        }
-
-        private void UpgradeBackButton_Click(object sender, RoutedEventArgs e)
-        {
-            openMenu = Menu.None;
-            // UpgradeMenu.Visibility = Visibility.Collapsed;
         }
 
         private void NextTurnButton_KeyDown(object sender, KeyRoutedEventArgs e)

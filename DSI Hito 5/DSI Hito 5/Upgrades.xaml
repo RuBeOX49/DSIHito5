@@ -65,16 +65,20 @@
                     </Grid.ColumnDefinitions>
            
                 <Image Grid.Column="4" Grid.Row="7" Margin="20"/>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="6" >
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="6" 
+                    Click="Upgrade0_Click">
                         <SymbolIcon Symbol="Globe" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}"  Grid.Column="2" Grid.Row="4" >
+                    <Button Style="{StaticResource BotonMejora}"  Grid.Column="2" Grid.Row="4" 
+                    Click="Upgrade1_Click">
                         <SymbolIcon Symbol="Calculator" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="6" Grid.Row="4" >
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="6" Grid.Row="4" 
+                    Click="Upgrade2_Click">
                         <SymbolIcon Symbol="Calendar" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="4">
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="4"
+                    Click="Upgrade3_Click">
                         <SymbolIcon Symbol="Library" Foreground="White"/>
                     </Button>
                     <Button Style="{StaticResource BotonMejora}" Grid.Column="7" Grid.Row="3" >
@@ -97,8 +101,8 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="80"/>
                 </Grid.RowDefinitions>
-            <TextBlock Text="Nombre Mejora" VerticalAlignment="Top" FontSize="40" Foreground="White" FontWeight="Bold"/>
-            <TextBlock Text="Descripción: Bla babll ablab labal blaba lala Bla babll ablab labal blaba lala Bla babll ablab labal blaba lala Bla babll ablab labal blaba lala Bla babll ablab labal blaba lala Bla babll ablab labal blaba lala"
+                <TextBlock x:Name="UpgradeNameText" Text="Nombre Mejora" VerticalAlignment="Top" FontSize="40" Foreground="White" FontWeight="Bold"/>
+                <TextBlock x:Name="UpgradeDescriptionText" Text="Descripcion de Mejoraaaaaaa blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla"
                         FontSize="26" Foreground="White" Margin="0, 10, 0, 0" TextWrapping="WrapWholeWords" Grid.Row="1"/>
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="$" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
