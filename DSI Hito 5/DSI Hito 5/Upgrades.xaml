@@ -81,13 +81,16 @@
                     Click="Upgrade3_Click">
                         <SymbolIcon Symbol="Library" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="7" Grid.Row="3" >
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="7" Grid.Row="3" 
+                            Click="Upgrade4_Click">
                         <SymbolIcon Symbol="NewFolder" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="1" Grid.Row="3" >
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="1" Grid.Row="3" 
+                            Click="Upgrade5_Click">
                         <SymbolIcon Symbol="Play" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="2" >
+                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="2" 
+                            Click="Upgrade6_Click">
                         <SymbolIcon Symbol="BrowsePhotos" Foreground="White"/>
                     </Button>
                     

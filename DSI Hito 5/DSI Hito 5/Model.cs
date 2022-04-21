@@ -114,6 +114,18 @@ namespace DSI_Hito_5
               Nombre = "Mejora 4",
               Descripcion = "Mejora 4, descripcion"
             },
+            new Mejora()
+            {
+              Id = 5,
+              Nombre = "Mejora 5",
+              Descripcion = "Mejora 5, descripcion"
+            },
+            new Mejora()
+            {
+              Id = 6,
+              Nombre = "Mejora 6",
+              Descripcion = "Mejora 6, descripcion"
+            }
 
         };
 

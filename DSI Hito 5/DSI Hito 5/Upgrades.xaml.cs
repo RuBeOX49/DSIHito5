@@ -75,5 +75,24 @@ namespace DSI_Hito_5
             selectedUpgrade = 3;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(selectedUpgrade)));
         }
+
+        private void Upgrade4_Click(object sender, RoutedEventArgs e)
+        {
+            selectedUpgrade = 4;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(selectedUpgrade)));
+        }
+
+        private void Upgrade5_Click(object sender, RoutedEventArgs e)
+        {
+            selectedUpgrade = 5;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(selectedUpgrade)));
+        }
+
+        private void Upgrade6_Click(object sender, RoutedEventArgs e)
+        {
+            selectedUpgrade = 6;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(selectedUpgrade)));
+        }
+
     }
 }
