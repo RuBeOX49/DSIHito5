@@ -22,6 +22,8 @@ namespace DSI_Hito_5
     /// </summary>
     public sealed partial class Upgrades : Page
     {
+        public int selectedUpgrade;
+
         public Upgrades()
         {
             this.InitializeComponent();

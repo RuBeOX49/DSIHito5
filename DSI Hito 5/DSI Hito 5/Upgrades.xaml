@@ -61,14 +61,28 @@
                     </Grid.ColumnDefinitions>
            
                 <Image Grid.Column="4" Grid.Row="7" Margin="20"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="7" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Background="White" Width="40" Height="40" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="Globe" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="Calculator" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="Calendar" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="Library" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="7" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="NewFolder" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="Play" Foreground="White"/>
+                    </Button>
+                    <Button Background="Transparent" Foreground="White" FontFamily="Segoe MDL2 Assets" Width="40" Height="40" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="5">
+                        <SymbolIcon Symbol="BrowsePhotos" Foreground="White"/>
+                    </Button>
+                    
                 </Grid>
             </ScrollViewer>
             

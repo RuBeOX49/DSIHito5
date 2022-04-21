@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
+using Windows.System;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -63,7 +64,7 @@ namespace DSI_Hito_5
         {
             Frame.Navigate(typeof(Upgrades));
             openMenu = Menu.Upgrade;
-            UpgradeMenu.Visibility = Visibility.Visible;
+            // UpgradeMenu.Visibility = Visibility.Visible;
         }
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
@@ -74,7 +75,16 @@ namespace DSI_Hito_5
         private void UpgradeBackButton_Click(object sender, RoutedEventArgs e)
         {
             openMenu = Menu.None;
-            UpgradeMenu.Visibility = Visibility.Collapsed;
+            // UpgradeMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void NextTurnButton_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Tab)
+            {
+                e.Handled = true;
+                UpgradeButton.Focus(FocusState.Programmatic);
+            }
         }
     }
 }

@@ -19,6 +19,19 @@ namespace DSI_Hito_5
 
     }
 
+    class Mejora
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+
+
+        public Mejora() { }
+
+
+
+    }
+
     class Model
     {
         public static List<Aldeano> listaAldeanos = new List<Aldeano>()
@@ -66,5 +79,52 @@ namespace DSI_Hito_5
             return listaAldeanos[id];
         }
 
+
+
+
+        public static List<Mejora> listaMejoras = new List<Mejora>()
+        {
+            new Mejora()
+            {
+              Id = 0,
+              Nombre = "Mejora 0",
+              Descripcion = "Mejora 0, descripcion"
+            },
+            new Mejora()
+            {
+              Id = 1,
+              Nombre = "Mejora 1",
+              Descripcion = "Mejora 1, descripcion"
+            },
+            new Mejora()
+            {
+              Id = 2,
+              Nombre = "Mejora 2",
+              Descripcion = "Mejora 2, descripcion"
+            },
+            new Mejora()
+            {
+              Id = 3,
+              Nombre = "Mejora 3",
+              Descripcion = "Mejora 3, descripcion"
+            },
+            new Mejora()
+            {
+              Id = 4,
+              Nombre = "Mejora 4",
+              Descripcion = "Mejora 4, descripcion"
+            },
+
+        };
+
+        public static IList<Mejora> GetAllMejoras()
+        {
+            return listaMejoras;
+        }
+
+        public static Mejora GetMejoraById(int id)
+        {
+            return listaMejoras[id];
+        }
     }
 }

@@ -23,8 +23,8 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="UpgradeButton_Click"/>
-                <Button Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="VillagersButton_Click"/>
+                <Button x:Name="UpgradeButton" Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0"/>
+                <Button x:Name="VillagersButton" Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="VillagersButton_Click" IsTabStop="True" TabIndex="1"/>
             </StackPanel>
 
             <Button Content="End Turn"
@@ -35,7 +35,8 @@
                     Margin="0,0,20,0"
                     Click="EndTurnButton_Click"
                     CornerRadius="10"
-                    BorderBrush="SpringGreen" BorderThickness="10"/>
+                    BorderBrush="SpringGreen" BorderThickness="10" IsTabStop="True" TabIndex="2"
+                    KeyDown="NextTurnButton_KeyDown"/>
 
             <Ellipse Height="150"
                      Width="150"
@@ -67,7 +68,7 @@
 
 
             <!--mejoras-->
-            <Grid x:Name="UpgradeMenu" Visibility="Visible">
+            <!--<Grid x:Name="UpgradeMenu" Visibility="Visible">
                 <MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="150" CornerRadius="30" MaxWidth="10000" MaxHeight="10000"/>
                 <Button FontFamily="Segoe MDL2 Assets"
                     HorizontalAlignment="Left"
@@ -158,7 +159,7 @@
                         </Button>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
 </Page>
