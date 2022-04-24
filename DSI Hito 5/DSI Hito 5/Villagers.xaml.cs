@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,12 @@ namespace DSI_Hito_5
     /// </summary>
     public sealed partial class Villagers : Page
     {
+        
         public Villagers()
         {
             this.InitializeComponent();
+
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

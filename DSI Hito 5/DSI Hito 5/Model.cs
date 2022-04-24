@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace DSI_Hito_5
 {
-    class Aldeano
+    public class Aldeano
     {
         public int Id { get; set; }
         public String Nombre{ get; set; }
@@ -138,5 +139,98 @@ namespace DSI_Hito_5
         {
             return listaMejoras[id];
         }
+
+
+        
+
+    }
+
+    public class VMAldeano : Aldeano
+    {
+        public Image Img;
+        public ContentControl CC;
+        public Grid VillagerGrid;
+        
+        public VMAldeano(Aldeano aldeano) 
+        {
+            Id = aldeano.Id;
+            Nombre = aldeano.Nombre;
+            Imagen = aldeano.Imagen;
+
+            VillagerGrid = new Grid();
+            /*
+             Cosas que meterle a este grid:
+
+            - Nombre del aldeano
+
+            - Imagen del aldeano
+
+            - Cantidad de aldeanos? TBD
+
+            - 
+             
+             
+             
+             
+             */
+            // Definiciones del espacio de Grid;
+
+            ColumnDefinition col1 = new ColumnDefinition();
+            ColumnDefinition col2 = new ColumnDefinition();
+            ColumnDefinition col3 = new ColumnDefinition();
+
+            col1.MaxWidth = 10;
+            col3.MaxWidth = 10;
+            
+            VillagerGrid.ColumnDefinitions.Add(col1);
+            VillagerGrid.ColumnDefinitions.Add(col2);
+            VillagerGrid.ColumnDefinitions.Add(col3);
+
+            RowDefinition row1 = new RowDefinition();
+            RowDefinition row3 = new RowDefinition();
+            RowDefinition row2 = new RowDefinition();
+
+            row1.MaxHeight = 10;
+            row3.MaxHeight = 10;
+
+            VillagerGrid.RowDefinitions.Add(row1);
+            VillagerGrid.RowDefinitions.Add(row2);
+            VillagerGrid.RowDefinitions.Add(row3);
+
+            // Contenido del VillagerGrid
+            
+            TextBlock IDText = new TextBlock();
+            IDText.Text = Id.ToString();
+            IDText.FontSize = 8;
+
+            VillagerGrid.Children.Add(IDText);
+            IDText.SetValue(Grid.ColumnProperty, 0);
+            IDText.SetValue(Grid.RowProperty, 0);
+
+            TextBlock NameText = new TextBlock();
+            NameText.Text = Nombre.ToString();
+            NameText.FontSize = 10;
+
+            VillagerGrid.Children.Add(NameText);
+            NameText.SetValue(Grid.ColumnProperty, 1);
+            NameText.SetValue(Grid.RowProperty, 2);
+
+
+            Img = new Image();
+            string s = System.IO.Directory.GetCurrentDirectory() + "\\" + aldeano.Imagen;
+            Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
+
+            VillagerGrid.Children.Add(Img);
+            Img.SetValue(Grid.ColumnProperty, 1);
+            Img.SetValue(Grid.RowProperty, 1);
+
+            CC = new ContentControl();
+
+            CC.Content = VillagerGrid;
+            CC.UseSystemFocusVisuals = true;
+
+        
+        }
+    
     }
 }
