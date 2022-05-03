@@ -8,17 +8,18 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        <DataTemplate x:Key="Aldeano">
-            <Grid Height="100" Width="100">
-                <Image Margin="5,5,5,5"/>
-            </Grid>
-        </DataTemplate>
+        
 
 
     </Page.Resources>
 
     <Grid>
-        <StackPanel Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"/>
+        <ListView Background="MidnightBlue" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.IsHorizontalRailEnabled="True"
+                  ItemsSource="{x:Bind aldeanos}"/>
         <Button FontFamily="Segoe MDL2 Assets"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"

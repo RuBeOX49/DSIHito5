@@ -43,34 +43,23 @@ namespace DSI_Hito_5
             new Aldeano()
             {
               Id = 0,
-              Nombre = "Aldeano raso",
-              Imagen = "Assets\\Images\\AldeanoRaso.png"
+              Nombre = "Aldeano Común",
+              Imagen = "Assets\\Images\\aldeanoComun.PNG"
             },
             new Aldeano()
             {
               Id = 1,
-              Nombre = "Aldeano minero",
-              Imagen = "Assets\\Images\\AldeanoMinero.png"
+              Nombre = "Aldeano Minero",
+              Imagen = "Assets\\Images\\aldeanoMinero.PNG"
             },
+           
             new Aldeano()
             {
               Id = 2,
-              Nombre = "Aldeano soldado",
-              Imagen = "Assets\\Images\\AldeanoSoldado.png"
+              Nombre = "Aldeano CEO",
+              Imagen = "Assets\\Images\\AldeanoCEO.PNG"
             },
-            new Aldeano()
-            {
-              Id = 3,
-              Nombre = "CEO",
-              Imagen = "Assets\\Images\\AldeanoCEO.png"
-            },
-            new Aldeano()
-            {
-              Id = 4,
-              Nombre = "Aldeano recolector",
-              Imagen = "Assets\\Images\\AldeanoRecolector.png"
-            },
-
+           
         };
 
         public static IList<Aldeano> GetAllAldeanos()
