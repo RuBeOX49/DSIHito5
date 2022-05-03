@@ -232,6 +232,7 @@ namespace DSI_Hito_5
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + aldeano.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
+            
 
             VillagerGrid.Children.Add(Img);
             Img.SetValue(Grid.ColumnProperty, 1);

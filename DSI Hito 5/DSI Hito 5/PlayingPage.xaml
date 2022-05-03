@@ -27,17 +27,9 @@
             <StackPanel Grid.Row="0"
                     Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Button 
-                    FontFamily="Segoe MDL2 Assets"
-                    Click="VillagersButton_Click"
-                    CornerRadius="50"
-                    Background="MidnightBlue"
-                    Foreground="White"
-                    
-                    Height="100" Width="100">
-                    <!--Ejemplo-->
-                    <SymbolIcon Symbol="Add" Foreground="White"/>
-                </Button>
+                <StackPanel x:Name="Node"
+                    DragOver="Node_Dragover" MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50">
+                </StackPanel>
 
                 <Button 
                     Click="VillagersButton_Click"
@@ -211,6 +203,23 @@
                     </StackPanel>
                 </Popup>
             </RelativePanel>
+            <RelativePanel>
+                <Popup x:Name="VillagersPopup" IsOpen="False" IsLightDismissEnabled="True"  VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <ListView Background="MidnightBlue" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.IsHorizontalRailEnabled="True"
+                  ScrollViewer.VerticalScrollMode="Disabled"
+                  ItemsSource="{x:Bind CCAldeanos}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </Popup>
+        </RelativePanel>
 
         </Grid>
     </Grid>

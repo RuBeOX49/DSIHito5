@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
 using Windows.System;
 using Windows.UI;
+using System.Collections.ObjectModel;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,6 +31,10 @@ namespace DSI_Hito_5
         public int moneyPerRound;
         public int selectedUpgrade;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<VMAldeano> VMaldeanos = new ObservableCollection<VMAldeano>();
+
+        public ObservableCollection<ContentControl> CCAldeanos = new ObservableCollection<ContentControl>();
 
         enum Menu
         {
@@ -51,6 +56,13 @@ namespace DSI_Hito_5
             UpgradeDescriptionText.Text = "";
             PropertyChanged += SetUpgradeInfo;
             openMenu = Menu.None;
+            foreach (Aldeano aldeano in Model.GetAllAldeanos())
+            {
+                VMAldeano VMaldeano = new VMAldeano(aldeano);
+                VMaldeanos.Add(VMaldeano);
+                CCAldeanos.Add(VMaldeano.CC);
+            }
+
         }
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs e)
@@ -75,7 +87,7 @@ namespace DSI_Hito_5
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Villagers));
+            VillagersPopup.IsOpen = true;
         }
 
         private void NextTurnButton_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -198,6 +210,11 @@ namespace DSI_Hito_5
             }
 
             // Gastar dinero
+        }
+
+        private void Node_Dragover(object sender, DragEventArgs e)
+        {
+
         }
     }
 }
