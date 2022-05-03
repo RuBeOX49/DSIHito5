@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
     <Grid>
+
+        <Image Source="/Assets/bg.PNG" Stretch="Fill"/>
 
         <MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="10" Height="100" Width="200" Margin="0, 35, 0, 0"/>
         <Grid Margin="40">
@@ -22,21 +24,27 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+
             <Button 
                 FontFamily="Segoe MDL2 Assets"
                 Click="VillagersButton_Click"
-                CornerRadius="30"
+                CornerRadius="50"
                 Background="MidnightBlue"
                 Foreground="White"
                 Grid.Row="0"
                 Grid.Column="1"
-                Margin="600,200,20,20" VerticalAlignment="Top" Height="50" Width="50">  <!--Ejemplo-->
+                Margin="530,192,0,0" VerticalAlignment="Top" Height="100" Width="100">
+                <!--Ejemplo-->
                 <SymbolIcon Symbol="Add" Foreground="White"/>
             </Button>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="UpgradeButton" Content="Invest" FontSize="30" Height="130" Width="130" Margin="0,0,20,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0"/>
-                <Button x:Name="VillagersButton" Content="Ascensos" FontSize="20" Height="130" Width="130" Margin="20,0,0,0" CornerRadius="15" BorderBrush="RoyalBlue" BorderThickness="10" Click="VillagersButton_Click" IsTabStop="True" TabIndex="1"/>
+                <Button x:Name="UpgradeButton" Height="200" Width="200" Margin="0,0,20,0" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0" Background="Transparent">
+                    <Image Source="/Assets/investNew.PNG"/>
+                </Button>
+                <Button x:Name="VillagersButton" Height="200" Width="200" Margin="20,0,0,0" Click="VillagersButton_Click" IsTabStop="True" TabIndex="1" Background="Transparent">
+                    <Image Source="/Assets/villagers.PNG"/>
+                </Button>
             </StackPanel>
 
 

@@ -12,22 +12,17 @@
 
     <Grid
         Background="MidnightBlue">
-        <TextBlock
-                Text="Villagers and Frontiers"
-            HorizontalAlignment="Center"
-            FontSize="100"
-            Foreground="White"
-            Margin="0,180,0,-180"/>
-        <StackPanel
-            HorizontalAlignment="Center" Margin="0,437,0,0"
-            Spacing="10"
-            Width="500"
-            >
+
+
+        <StackPanel Spacing="10" VerticalAlignment="Stretch">
+
+            <Image Source="/Assets/title.png" MaxHeight="500" MaxWidth="800" VerticalAlignment="Stretch" Margin="0, 50, 0, 0"/>
 
             <Button
                 x:Name="PlayButton"
-                    Height="100"
-                    Width="400"
+                    MaxHeight="100"
+                    MinWidth="200"
+                    MaxWidth="400"
                     HorizontalAlignment="Center"
                     Background="DodgerBlue"
                     CornerRadius="40"
@@ -40,10 +35,9 @@
             </Button>
 
             <Button
-                Height="50"
-                Width="300"
+                MaxHeight="50"
+                MaxWidth="300"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
                 Background="Transparent"
                 Foreground="White"
                 CornerRadius="20"
@@ -53,10 +47,9 @@
                     FontSize="30"/>
             </Button>
             <Button
-                Height="50"
-                Width="300"
+                MaxHeight="50"
+                MaxWidth="300"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
                 Background="Transparent"
                 Foreground="White"
                 CornerRadius="20">
@@ -65,8 +58,8 @@
                     FontSize="30"/>
             </Button>
             <Button
-                Height="50"
-                Width="300"
+                MaxHeight="50"
+                MaxWidth="300"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
