@@ -23,14 +23,15 @@ namespace DSI_Hito_5
     /// </summary>
     public sealed partial class Villagers : Page
     {
-        public ObservableCollection<Aldeano> aldeanos = new ObservableCollection<Aldeano>();
+        public ObservableCollection<VMAldeano> VMaldeanos = new ObservableCollection<VMAldeano>();
         
         public Villagers()
         {
             this.InitializeComponent();
             foreach(Aldeano aldeano in Model.GetAllAldeanos())
             {
-                aldeanos.Add(aldeano);
+                VMAldeano VMaldeano = new VMAldeano(aldeano);
+                VMaldeanos.Add(VMaldeano);
             }
             
 

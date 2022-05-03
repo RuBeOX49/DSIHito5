@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        
+        <DataTemplate x:Key="Aldeano" x:DataType="local:VMAldeano">
+            <ContentControl x:Name="{x:Bind CC}"/>
+        </DataTemplate>
 
 
     </Page.Resources>
@@ -19,7 +21,14 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.IsHorizontalRailEnabled="True"
-                  ItemsSource="{x:Bind aldeanos}"/>
+                  ScrollViewer.VerticalScrollMode="Disabled"
+                  ItemsSource="{x:Bind VMaldeanos}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
         <Button FontFamily="Segoe MDL2 Assets"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
