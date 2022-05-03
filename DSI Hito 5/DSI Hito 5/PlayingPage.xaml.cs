@@ -16,6 +16,7 @@ using System.ComponentModel;
 using Windows.System;
 using Windows.UI;
 using System.Collections.ObjectModel;
+using Windows.ApplicationModel.DataTransfer;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -214,7 +215,29 @@ namespace DSI_Hito_5
 
         private void Node_Dragover(object sender, DragEventArgs e)
         {
+            e.AcceptedOperation = DataPackageOperation.Copy;
+        }
 
+        private void VillagerPopout_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            //definir en código de qué dron estamos hablando
+            VMAldeano Item = e.Items[0] as VMAldeano;
+            //identificar qué dron es
+            string id = Item.Id.ToString();
+            //establecer el ID del objeto
+            e.Data.SetText(id);
+            //establecer qué operación queremos hacer
+            e.Data.RequestedOperation = DataPackageOperation.Copy;
+        }
+
+        private async void Node_DropOverEvent(object sender, DragEventArgs e)
+        {
+            var ID = await e.DataView.GetTextAsync();
+            var parsedID = int.Parse(ID);
+
+            VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+            Node.Children.Add(foo.CC);
         }
     }
 }
