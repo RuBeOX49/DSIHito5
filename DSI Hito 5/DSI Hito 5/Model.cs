@@ -25,6 +25,9 @@ namespace DSI_Hito_5
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public int Precio { get; set; }
+        public bool Desbloqueada { get; set; }
+        public bool Comprada { get; set; }
 
 
         public Mejora() { }
@@ -89,43 +92,64 @@ namespace DSI_Hito_5
             {
               Id = 0,
               Nombre = "Mejora 0",
-              Descripcion = "Mejora 0, descripcion"
-            },
+              Descripcion = "Mejora 0, descripcion",
+              Precio = 1,
+              Desbloqueada = true,
+              Comprada = true
+    },
             new Mejora()
             {
               Id = 1,
               Nombre = "Mejora 1",
-              Descripcion = "Mejora 1, descripcion"
+              Descripcion = "Mejora 1, descripcion",
+              Precio = 5,
+              Desbloqueada = true,
+              Comprada = false
             },
             new Mejora()
             {
               Id = 2,
               Nombre = "Mejora 2",
-              Descripcion = "Mejora 2, descripcion"
+              Descripcion = "Mejora 2, descripcion",
+              Precio = 10,
+              Desbloqueada = false,
+              Comprada = false
             },
             new Mejora()
             {
               Id = 3,
               Nombre = "Mejora 3",
-              Descripcion = "Mejora 3, descripcion"
+              Descripcion = "Mejora 3, descripcion",
+              Precio = 4,
+              Desbloqueada = true,
+              Comprada = false
             },
             new Mejora()
             {
               Id = 4,
               Nombre = "Mejora 4",
-              Descripcion = "Mejora 4, descripcion"
+              Descripcion = "Mejora 4, descripcion",
+              Precio = 7,
+              Desbloqueada = false,
+              Comprada = false
             },
             new Mejora()
             {
               Id = 5,
               Nombre = "Mejora 5",
-              Descripcion = "Mejora 5, descripcion"
+              Descripcion = "Mejora 5, descripcion",
+              Precio = 2,
+              Desbloqueada = true,
+              Comprada = false
             },
             new Mejora()
             {
               Id = 6,
               Nombre = "Mejora 6",
-              Descripcion = "Mejora 6, descripcion"
+              Descripcion = "Mejora 6, descripcion",
+              Precio = 3,
+              Desbloqueada = false,
+              Comprada = false
             }
 
         };

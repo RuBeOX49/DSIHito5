@@ -65,33 +65,33 @@
                     </Grid.ColumnDefinitions>
            
                 <Image Grid.Column="4" Grid.Row="7" Margin="20"/>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="6" 
+                    <Button x:Name="Upgrade0" Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="6" 
                     Click="Upgrade0_Click">
-                        <SymbolIcon Symbol="Globe" Foreground="White"/>
+                        <SymbolIcon x:Name="Icon0" Symbol="Globe" Foreground="RoyalBlue"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}"  Grid.Column="2" Grid.Row="4" 
+                    <Button x:Name="Upgrade1" Style="{StaticResource BotonMejora}"  Grid.Column="2" Grid.Row="4" 
                     Click="Upgrade1_Click">
-                        <SymbolIcon Symbol="Calculator" Foreground="White"/>
+                        <SymbolIcon x:Name="Icon1" Symbol="Calculator" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="6" Grid.Row="4" 
-                    Click="Upgrade2_Click">
-                        <SymbolIcon Symbol="Calendar" Foreground="White"/>
+                    <Button x:Name="Upgrade2" Style="{StaticResource BotonMejora}" Grid.Column="1" Grid.Row="3" 
+                            Click="Upgrade2_Click">
+                        <SymbolIcon x:Name="Icon2" Symbol="Play" Foreground="Gray"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="4"
+                    <Button x:Name="Upgrade3" Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="4"
                     Click="Upgrade3_Click">
-                        <SymbolIcon Symbol="Library" Foreground="White"/>
+                        <SymbolIcon x:Name="Icon3" Symbol="Library" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="7" Grid.Row="3" 
+                    <Button x:Name="Upgrade4" Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="2" 
                             Click="Upgrade4_Click">
-                        <SymbolIcon Symbol="NewFolder" Foreground="White"/>
+                        <SymbolIcon x:Name="Icon4" Symbol="BrowsePhotos" Foreground="Gray"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="1" Grid.Row="3" 
-                            Click="Upgrade5_Click">
-                        <SymbolIcon Symbol="Play" Foreground="White"/>
+                    <Button x:Name="Upgrade5" Style="{StaticResource BotonMejora}" Grid.Column="6" Grid.Row="4" 
+                    Click="Upgrade5_Click">
+                        <SymbolIcon x:Name="Icon5" Symbol="Calendar" Foreground="White"/>
                     </Button>
-                    <Button Style="{StaticResource BotonMejora}" Grid.Column="4" Grid.Row="2" 
+                    <Button x:Name="Upgrade6" Style="{StaticResource BotonMejora}" Grid.Column="7" Grid.Row="3" 
                             Click="Upgrade6_Click">
-                        <SymbolIcon Symbol="BrowsePhotos" Foreground="White"/>
+                        <SymbolIcon x:Name="Icon6" Symbol="NewFolder" Foreground="Gray"/>
                     </Button>
                     
                 </Grid>
@@ -109,14 +109,16 @@
                         FontSize="26" Foreground="White" Margin="0, 10, 0, 0" TextWrapping="WrapWholeWords" Grid.Row="1"/>
                 <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="$" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
-                    <TextBlock Text="10 (Ej)" Margin="10, 0, 0, 0" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
+                    <TextBlock x:Name="UpgradePriceText" Text="10 (Ej)" Margin="10, 0, 0, 0" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
                 </StackPanel>
-                <Button FontFamily="Segoe MDL2 Assets"
+                <Button  x:Name="BuyButton"
+                    FontFamily="Segoe MDL2 Assets"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
                 Height="70"
-                Click="BackButton_Click"
+                Click="BuyButton_Click"
                 CornerRadius="15"
+                Visibility="Collapsed"
                 Background="RoyalBlue"
                 Foreground="White"
                 Grid.Row="3">

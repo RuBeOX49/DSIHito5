@@ -24,19 +24,33 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.Row="0"
+                    Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <Button 
+                    FontFamily="Segoe MDL2 Assets"
+                    Click="VillagersButton_Click"
+                    CornerRadius="50"
+                    Background="MidnightBlue"
+                    Foreground="White"
+                    
+                    Height="100" Width="100">
+                    <!--Ejemplo-->
+                    <SymbolIcon Symbol="Add" Foreground="White"/>
+                </Button>
 
-            <Button 
-                FontFamily="Segoe MDL2 Assets"
-                Click="VillagersButton_Click"
-                CornerRadius="50"
-                Background="MidnightBlue"
-                Foreground="White"
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="530,192,0,0" VerticalAlignment="Top" Height="100" Width="100">
-                <!--Ejemplo-->
-                <SymbolIcon Symbol="Add" Foreground="White"/>
-            </Button>
+                <Button 
+                    Click="VillagersButton_Click"
+                    CornerRadius="50"
+                    Background="MidnightBlue"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Content="0"
+                    FontSize="40"
+                    VerticalContentAlignment="Center"
+                    Height="70" Width="70"/>
+
+            </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="UpgradeButton" Height="200" Width="200" Margin="0,0,20,0" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0" Background="Transparent">
@@ -47,7 +61,9 @@
                 </Button>
             </StackPanel>
 
-
+            <Button Grid.Column="2" Click="VillagersButton_Click">
+                <Image Source="/Assets/blueRedFrontier.PNG"/>
+            </Button>
 
             <Button Content="End Turn"
                     Grid.Column="2"

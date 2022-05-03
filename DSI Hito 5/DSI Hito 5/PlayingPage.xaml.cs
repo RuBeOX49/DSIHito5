@@ -64,7 +64,6 @@ namespace DSI_Hito_5
         {
             openMenu = Menu.Upgrade;
             Frame.Navigate(typeof(Upgrades));
-            // UpgradeMenu.Visibility = Visibility.Visible;
         }
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
