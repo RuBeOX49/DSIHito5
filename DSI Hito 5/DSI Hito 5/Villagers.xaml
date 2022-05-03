@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <DataTemplate x:Key="Aldeano" x:DataType="local:VMAldeano">
-            <ContentControl x:Name="{x:Bind CC}"/>
+            <ContentControl />
         </DataTemplate>
 
 
@@ -22,7 +22,7 @@
                   ScrollViewer.HorizontalScrollMode="Enabled"
                   ScrollViewer.IsHorizontalRailEnabled="True"
                   ScrollViewer.VerticalScrollMode="Disabled"
-                  ItemsSource="{x:Bind VMaldeanos}">
+                  ItemsSource="{x:Bind CCAldeanos}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

@@ -24,7 +24,8 @@ namespace DSI_Hito_5
     public sealed partial class Villagers : Page
     {
         public ObservableCollection<VMAldeano> VMaldeanos = new ObservableCollection<VMAldeano>();
-        
+
+        public ObservableCollection<ContentControl> CCAldeanos = new ObservableCollection<ContentControl>();
         public Villagers()
         {
             this.InitializeComponent();
@@ -32,6 +33,7 @@ namespace DSI_Hito_5
             {
                 VMAldeano VMaldeano = new VMAldeano(aldeano);
                 VMaldeanos.Add(VMaldeano);
+                CCAldeanos.Add(VMaldeano.CC);
             }
             
 
