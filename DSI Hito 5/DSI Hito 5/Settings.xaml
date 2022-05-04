@@ -11,31 +11,39 @@
     <Grid Background="MidnightBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="Button_Click" VerticalAlignment="Top">
+        <Button Click="Button_Click" VerticalAlignment="Top" Width="80" Height="50">
             <SymbolIcon Symbol="Back"/>
         </Button>
+        <TextBlock Text="Settings" FontSize="40" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,140,0,0"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
+            <Button x:Name="DecreaseGraphics" Click="DecreaseGraphics_Click" Margin="0,0,0,40">
+                <SymbolIcon Symbol="Back"/>
+            </Button>
             <SymbolIcon Symbol="Audio" Margin="0,0,0,20"/>
-            <SymbolIcon Symbol="Character" Margin="0,0,0,20"/>
+            <SymbolIcon Symbol="Character" Margin="0,40,0,0" />
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <StackPanel Orientation="Horizontal">
-                <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
-                <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="20,0,0,0">
-                    <SymbolIcon Symbol="Mute"/>
-                </Button>
-            </StackPanel>
-            
-            <ComboBox Width="250">
+            <TextBlock x:Name="GraphicsText" Text="{x:Bind graphics, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,50" FontSize="30"/>
+            <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
+            <ComboBox Width="250" Margin="0,50,0,0">
                 <ComboBoxItem IsSelected="True">Español</ComboBoxItem>
                 <ComboBoxItem>English</ComboBoxItem>
                 <ComboBoxItem>Deutsch</ComboBoxItem>
-                <ComboBoxItem>汉语</ComboBoxItem>
+                <ComboBoxItem>简体中文</ComboBoxItem>
                 <ComboBoxItem>한국어</ComboBoxItem>
                 <ComboBoxItem>日本語</ComboBoxItem>
             </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="20,0,0,0">
+            <Button x:Name="IncreaseGraphics" Click="IncreaseGraphics_Click" Margin="0,0,0,30">
+                <SymbolIcon Symbol="Forward"/>
+            </Button>
+            <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="0,0,0,80">
+                <SymbolIcon Symbol="Mute"/>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
