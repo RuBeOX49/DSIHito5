@@ -29,8 +29,8 @@
             <TextBlock x:Name="GraphicsText" Text="{x:Bind graphics, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,50" FontSize="30"/>
             <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
             <ComboBox Width="250" Margin="0,50,0,0">
-                <ComboBoxItem IsSelected="True">Español</ComboBoxItem>
-                <ComboBoxItem>English</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">English</ComboBoxItem>
+                <ComboBoxItem>Español</ComboBoxItem>
                 <ComboBoxItem>Deutsch</ComboBoxItem>
                 <ComboBoxItem>简体中文</ComboBoxItem>
                 <ComboBoxItem>한국어</ComboBoxItem>
