@@ -12,7 +12,9 @@ namespace DSI_Hito_5
         public int Id { get; set; }
         public String Nombre{ get; set; }
         public string Imagen { get; set; }
-        
+        public int warPoints { get; set; }
+        public int workPoints { get; set; }
+
 
         public Aldeano() { }
 
@@ -44,20 +46,26 @@ namespace DSI_Hito_5
             {
               Id = 0,
               Nombre = "Aldeano Común",
-              Imagen = "Assets\\aldeanoComun.PNG"
+              Imagen = "Assets\\aldeanoComun.PNG",
+              warPoints = 1,
+              workPoints = 1
             },
             new Aldeano()
             {
               Id = 1,
               Nombre = "Aldeano Minero",
-              Imagen = "Assets\\aldeanoMinero.PNG"
+              Imagen = "Assets\\aldeanoMinero.PNG",
+              warPoints = 1,
+              workPoints = 2
             },
            
             new Aldeano()
             {
               Id = 2,
               Nombre = "Aldeano CEO",
-              Imagen = "Assets\\AldeanoCEO.PNG"
+              Imagen = "Assets\\AldeanoCEO.PNG",
+              warPoints = 1,
+              workPoints = 2
             },
            
         };
@@ -163,12 +171,16 @@ namespace DSI_Hito_5
         public Image Img;
         public ContentControl CC;
         public Grid VillagerGrid;
+        public int warPoints;
+        public int workPoints;
         
         public VMAldeano(Aldeano aldeano) 
         {
             Id = aldeano.Id;
             Nombre = aldeano.Nombre;
             Imagen = aldeano.Imagen;
+            warPoints = aldeano.warPoints;
+            workPoints = aldeano.workPoints;
 
             VillagerGrid = new Grid();
             /*

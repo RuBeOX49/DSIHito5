@@ -263,6 +263,9 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCNodo.Add(foo.CC);
+            Node.Background = UpgradePriceText.Foreground = new SolidColorBrush(Colors.Transparent);
+            NodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
+            NodeTotal.Content = (int.Parse((string)NodeTotal.Content) + foo.workPoints).ToString();
         }
 
         private async void WarNode_DropOverEvent(object sender, DragEventArgs e)
@@ -273,6 +276,9 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCWarNodo.Add(foo.CC);
+            WarNode.Background = UpgradePriceText.Foreground = new SolidColorBrush(Colors.Transparent);
+            WarNodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
+            WarNodeTotal.Content = (int.Parse((string)WarNodeTotal.Content) + foo.warPoints).ToString();
         }
     }
 }
