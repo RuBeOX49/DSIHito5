@@ -79,6 +79,10 @@ namespace DSI_Hito_5
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
             CCWarNodo.Clear();
             CCNodo.Clear();
+            NodeTotal.Visibility = Visibility.Collapsed;
+            WarNodeTotal.Visibility = Visibility.Collapsed;
+            Node.Background = new SolidColorBrush(Colors.MidnightBlue);
+            WarNode.Background = new SolidColorBrush(Colors.MidnightBlue);
         }
         public interface INotifyPropertyChanged
         {
@@ -263,7 +267,7 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCNodo.Add(foo.CC);
-            Node.Background = UpgradePriceText.Foreground = new SolidColorBrush(Colors.Transparent);
+            Node.Background = new SolidColorBrush(Colors.Transparent);
             NodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
             NodeTotal.Content = (int.Parse((string)NodeTotal.Content) + foo.workPoints).ToString();
         }
@@ -276,7 +280,7 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCWarNodo.Add(foo.CC);
-            WarNode.Background = UpgradePriceText.Foreground = new SolidColorBrush(Colors.Transparent);
+            WarNode.Background = new SolidColorBrush(Colors.Transparent);
             WarNodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
             WarNodeTotal.Content = (int.Parse((string)WarNodeTotal.Content) + foo.warPoints).ToString();
         }
