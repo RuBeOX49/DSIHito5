@@ -31,6 +31,7 @@ namespace DSI_Hito_5
         public int moneyCount;
         public int moneyPerRound;
         public int selectedUpgrade;
+        double volumeSaved;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<VMAldeano> VMaldeanos = new ObservableCollection<VMAldeano>();
@@ -279,6 +280,36 @@ namespace DSI_Hito_5
             WarNode.Background = UpgradePriceText.Foreground = new SolidColorBrush(Colors.Transparent);
             WarNodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
             WarNodeTotal.Content = (int.Parse((string)WarNodeTotal.Content) + foo.warPoints).ToString();
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            PausePopup.IsOpen = true;
+        }
+
+        private void MuteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (VolumeAdjust.Value > 0)
+            {
+                volumeSaved = VolumeAdjust.Value;
+                VolumeAdjust.Value = 0;
+            }
+            else VolumeAdjust.Value = volumeSaved;
+        }
+
+        private void YesSurrender_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void NoSurrender_Click(object sender, RoutedEventArgs e)
+        {
+            PausePopup.IsOpen = false;
+        }
+
+        private void SurrenderButton_Click(object sender, RoutedEventArgs e)
+        {
+            SurrenderPopup.IsOpen = true;
         }
     }
 }

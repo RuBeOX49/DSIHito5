@@ -93,7 +93,7 @@
                     VerticalContentAlignment="Center"
                     Height="70" Width="70"
                     Visibility="Collapsed"/>
-                
+
                 <ListView x:Name="WarNode" HorizontalAlignment="Center"
                     DragOver="Node_Dragover" Drop="WarNode_DropOverEvent"  MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -109,7 +109,7 @@
                     </ListView.ItemsPanel>
                 </ListView>
                 <Image Source="/Assets/blueRedFrontier.PNG"/>
-                
+
 
             </StackPanel>
 
@@ -131,6 +131,11 @@
                      Fill="MidnightBlue"
                      Grid.Row="1"
                      />
+            <Button x:Name="SettingsButton" Click="SettingsButton_Click" Grid.Column="2" 
+                    VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" Height="50"
+                    Background="Transparent" BorderBrush="Blue" CornerRadius="10">
+                <SymbolIcon Symbol="Setting" Foreground="Blue"/>
+            </Button>
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Turn" FontSize="40" Foreground="White"/>
@@ -152,7 +157,7 @@
 
             <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0">
                 <Popup x:Name="UpgradesPopup" IsOpen="False" IsLightDismissEnabled="True" RelativePanel.AlignTopWithPanel="True" >
-                    <StackPanel Background="MidnightBlue">
+                    <StackPanel Background="MidnightBlue" CornerRadius="10">
                         <!--<MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="150" CornerRadius="30"/>-->
 
                         <Grid>
@@ -293,6 +298,38 @@
                     </TextBlock>
                 </Popup>
             </StackPanel>
+
         </Grid>
+        <RelativePanel  HorizontalAlignment="Center">
+            <Popup x:Name="PausePopup" IsOpen="False" IsLightDismissEnabled="True" Margin="0,200,650,700">
+                <StackPanel Background="SlateGray" CornerRadius="30"  Width="700" Height="500">
+                    <TextBlock Text="Pause" FontSize="50" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
+                        <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
+                        <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
+                        <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="10,0,0,0" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
+                            <SymbolIcon Symbol="Mute"/>
+                        </Button>
+                    </StackPanel>
+                    <Button x:Name="SurrenderButton" HorizontalAlignment="Center" Content="Surrender" FontSize="30" BorderBrush="Red"
+                            CornerRadius="20" Margin="0,100,0,0" Width="250" Height="100" Click="SurrenderButton_Click"/>
+                    <RelativePanel HorizontalAlignment="Center"  RenderTransformOrigin="0.5,0.5">
+                        <RelativePanel.RenderTransform>
+                            <CompositeTransform TranslateY="-200" TranslateX="-200"/>
+                        </RelativePanel.RenderTransform>
+                        <Popup x:Name="SurrenderPopup" IsOpen="False" IsLightDismissEnabled="True">
+                            <StackPanel Background="DarkSlateGray" CornerRadius="20"  Width="400" Height="200">
+                                <TextBlock Text="Do you want to surrender?" FontSize="30" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                                    <Button x:Name="YesSurrender" Click="YesSurrender_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" BorderBrush="Red" CornerRadius="20"/>
+                                    <Button x:Name="NoSurrender" Click="NoSurrender_Click" Content="No" Width="170" Height="90" Margin="5,0,0,0" FontSize="40" CornerRadius="20"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Popup>
+                    </RelativePanel>
+                </StackPanel>
+
+            </Popup>
+        </RelativePanel>
     </Grid>
 </Page>

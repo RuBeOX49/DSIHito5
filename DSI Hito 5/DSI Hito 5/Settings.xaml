@@ -14,12 +14,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="Button_Click" VerticalAlignment="Top" Width="80" Height="50">
+        <Button Click="Button_Click" VerticalAlignment="Top" Width="80" Height="50" Background="Transparent">
             <SymbolIcon Symbol="Back"/>
         </Button>
         <TextBlock Text="Settings" FontSize="40" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,140,0,0"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
-            <Button x:Name="DecreaseGraphics" Click="DecreaseGraphics_Click" Margin="0,0,0,40">
+            <Button x:Name="DecreaseGraphics" Click="DecreaseGraphics_Click" Margin="0,0,0,40" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
                 <SymbolIcon Symbol="Back"/>
             </Button>
             <SymbolIcon Symbol="Audio" Margin="0,0,0,20"/>
@@ -38,10 +38,10 @@
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="20,0,0,0">
-            <Button x:Name="IncreaseGraphics" Click="IncreaseGraphics_Click" Margin="0,0,0,30">
+            <Button x:Name="IncreaseGraphics" Click="IncreaseGraphics_Click" Margin="0,0,0,30" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
                 <SymbolIcon Symbol="Forward"/>
             </Button>
-            <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="0,0,0,80">
+            <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="0,0,0,80" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
                 <SymbolIcon Symbol="Mute"/>
             </Button>
         </StackPanel>
