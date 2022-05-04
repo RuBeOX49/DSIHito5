@@ -13,12 +13,29 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Button Click="Button_Click" VerticalAlignment="Top">
+            <SymbolIcon Symbol="Back"/>
+        </Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
             <SymbolIcon Symbol="Audio" Margin="0,0,0,20"/>
             <SymbolIcon Symbol="Character" Margin="0,0,0,20"/>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Slider Minimum="0" Maximum="10" TickFrequency="1"/>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
+                <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="20,0,0,0">
+                    <SymbolIcon Symbol="Mute"/>
+                </Button>
+            </StackPanel>
+            
+            <ComboBox Width="250">
+                <ComboBoxItem IsSelected="True">Español</ComboBoxItem>
+                <ComboBoxItem>English</ComboBoxItem>
+                <ComboBoxItem>Deutsch</ComboBoxItem>
+                <ComboBoxItem>汉语</ComboBoxItem>
+                <ComboBoxItem>한국어</ComboBoxItem>
+                <ComboBoxItem>日本語</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </Page>

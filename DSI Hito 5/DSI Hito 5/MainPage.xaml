@@ -34,13 +34,14 @@
                         FontSize="50"/>
             </Button>
 
-            <Button
+            <Button x:Name="OptionsButton"
                 MaxHeight="50"
                 MaxWidth="300"
                 HorizontalAlignment="Center"
                 Background="Transparent"
                 Foreground="White"
                 CornerRadius="20"
+                Click="OptionsButton_Click"
                 >
                 <TextBlock
                     Text="Options"

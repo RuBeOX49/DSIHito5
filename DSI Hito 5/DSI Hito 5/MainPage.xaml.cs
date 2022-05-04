@@ -47,5 +47,10 @@ namespace DSI_Hito_5
         {
             Frame.Navigate(typeof(PlayingPage));
         }
+
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Settings));
+        }
     }
 }

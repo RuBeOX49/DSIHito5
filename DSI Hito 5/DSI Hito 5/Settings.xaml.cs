@@ -22,9 +22,28 @@ namespace DSI_Hito_5
     /// </summary>
     public sealed partial class Settings : Page
     {
+        double volumeSaved;
+        ColorSpectrum color;
         public Settings()
         {
             this.InitializeComponent();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack) Frame.GoBack();
+        }
+
+        private void MuteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (VolumeAdjust.Value > 0)
+            {
+                volumeSaved = VolumeAdjust.Value;
+                VolumeAdjust.Value = 0;
+            }
+            else VolumeAdjust.Value = volumeSaved;
+
         }
     }
 }
