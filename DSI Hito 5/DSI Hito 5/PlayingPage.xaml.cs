@@ -110,18 +110,33 @@ namespace DSI_Hito_5
             if (Model.GetMejoraById(selectedUpgrade).Desbloqueada && !Model.GetMejoraById(selectedUpgrade).Comprada)
             {
                 UpgradePriceText.Text = Model.GetMejoraById(selectedUpgrade).Precio.ToString();
+                DollarSign.Visibility = Visibility.Visible;
                 BuyButton.Visibility = Visibility.Visible;
+
+                if (moneyCount < Model.GetMejoraById(selectedUpgrade).Precio)
+                {
+                    BuyButton.Background = new SolidColorBrush(Colors.DimGray);
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    BuyButton.Background = new SolidColorBrush(Colors.RoyalBlue);
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
             else
             {
+                DollarSign.Visibility = Visibility.Collapsed;
                 BuyButton.Visibility = Visibility.Collapsed;
 
                 if (Model.GetMejoraById(selectedUpgrade).Comprada)
                 {
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.White);
                     UpgradePriceText.Text = "Comprada!";
                 }
                 else
                 {
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.Red);
                     UpgradePriceText.Text = "Bloqueada";
                 }
             }
