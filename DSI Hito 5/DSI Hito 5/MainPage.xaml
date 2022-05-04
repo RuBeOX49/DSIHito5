@@ -44,7 +44,7 @@
                 Click="OptionsButton_Click"
                 >
                 <TextBlock
-                    Text="Options"
+                    Text="Settings"
                     FontSize="30"/>
             </Button>
             <Button
