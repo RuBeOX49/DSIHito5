@@ -94,7 +94,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <RelativePanel Width="800" Height="300" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+            <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0">
                 <Popup x:Name="UpgradesPopup" IsOpen="False" IsLightDismissEnabled="True" RelativePanel.AlignTopWithPanel="True" >
                     <StackPanel Background="MidnightBlue">
                         <!--<MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="150" CornerRadius="30"/>-->
