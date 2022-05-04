@@ -193,6 +193,7 @@ namespace DSI_Hito_5
             ColumnDefinition col3 = new ColumnDefinition();
 
             col1.MaxWidth = 10;
+            col2.MaxWidth = int.MaxValue;
             col3.MaxWidth = 10;
             
             VillagerGrid.ColumnDefinitions.Add(col1);
@@ -204,6 +205,7 @@ namespace DSI_Hito_5
             RowDefinition row2 = new RowDefinition();
 
             row1.MaxHeight = 10;
+            row2.MaxHeight = int.MaxValue;
             row3.MaxHeight = 10;
 
             VillagerGrid.RowDefinitions.Add(row1);
@@ -232,6 +234,8 @@ namespace DSI_Hito_5
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + aldeano.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
+            Img.MaxHeight = row2.ActualHeight;
+            Img.MaxWidth = col2.ActualWidth;
             
 
             VillagerGrid.Children.Add(Img);
@@ -242,6 +246,7 @@ namespace DSI_Hito_5
 
             CC.Content = VillagerGrid;
             CC.UseSystemFocusVisuals = true;
+            CC.Name = Id.ToString();
 
         
         }
