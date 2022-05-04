@@ -196,21 +196,25 @@ namespace DSI_Hito_5
 
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
-            Model.GetMejoraById(selectedUpgrade).Comprada = true;
-
-            getUpgradeIcon(selectedUpgrade).Foreground = new SolidColorBrush(Colors.RoyalBlue);
-            BuyButton.Visibility = Visibility.Collapsed;
-            UpgradePriceText.Text = "Comprada!";
-
-            if (selectedUpgrade != 6)
+            if (moneyCount >= Model.GetMejoraById(selectedUpgrade).Precio)
             {
-                Model.GetMejoraById(selectedUpgrade + 1).Desbloqueada = true;
+                Model.GetMejoraById(selectedUpgrade).Comprada = true;
 
-                if (!Model.GetMejoraById(selectedUpgrade + 1).Comprada)
-                    getUpgradeIcon(selectedUpgrade + 1).Foreground = new SolidColorBrush(Colors.White);
+                getUpgradeIcon(selectedUpgrade).Foreground = new SolidColorBrush(Colors.RoyalBlue);
+                BuyButton.Visibility = Visibility.Collapsed;
+                UpgradePriceText.Text = "Comprada!";
+
+                if (selectedUpgrade != 6)
+                {
+                    Model.GetMejoraById(selectedUpgrade + 1).Desbloqueada = true;
+
+                    if (!Model.GetMejoraById(selectedUpgrade + 1).Comprada)
+                        getUpgradeIcon(selectedUpgrade + 1).Foreground = new SolidColorBrush(Colors.White);
+                }
+                moneyCount -= Model.GetMejoraById(selectedUpgrade).Precio;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(moneyCount)));
             }
-
-            // Gastar dinero
+            else NoDineroPopup.IsOpen = true;
         }
 
         private void Node_Dragover(object sender, DragEventArgs e)

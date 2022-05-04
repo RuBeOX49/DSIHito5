@@ -10,7 +10,11 @@
 
     <Grid>
 
-        <Image Source="/Assets/bg.PNG" Stretch="Fill"/>
+        <Image Source="/Assets/bg.PNG" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <CompositeTransform TranslateX="0"/>
+            </Image.RenderTransform>
+        </Image>
 
         <MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="10" Height="100" Width="200" Margin="0, 35, 0, 0"/>
         <Grid Margin="40">
@@ -110,7 +114,7 @@
 
                             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                                 <TextBlock Text="$" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
-                                <TextBlock Text="23 (Ej)" Margin="10, 0, 0, 0" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
+                                <TextBlock Text="{x:Bind moneyCount, Mode=OneWay}" Margin="10, 0, 0, 0" FontSize="35" HorizontalAlignment="Center" FontWeight="ExtraBold" Foreground="White"/>
                             </StackPanel>
 
                             <ScrollViewer ZoomMode="Disabled" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" Margin="40">
@@ -221,8 +225,21 @@
                         </ListView.ItemsPanel>
                     </ListView>
                 </Popup>
-        </RelativePanel>
-
+            </RelativePanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <CompositeTransform TranslateX="-150"/>
+                </StackPanel.RenderTransform>
+                <Popup x:Name="NoDineroPopup" IsOpen="False" IsLightDismissEnabled="True">
+                    <TextBlock x:Name="NoDineroText" Text="No tienes suficiente dinero"
+                           FontSize="35" 
+                           Foreground="Red"
+                           FontWeight="ExtraBold"
+                           Width="Auto"
+                           LineHeight="50">
+                    </TextBlock>
+                </Popup>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
