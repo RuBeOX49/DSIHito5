@@ -17,6 +17,7 @@ using Windows.System;
 using Windows.UI;
 using System.Collections.ObjectModel;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Gaming.Input;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,6 +32,10 @@ namespace DSI_Hito_5
         public int moneyCount;
         public int moneyPerRound;
         public int selectedUpgrade;
+
+        public string selectedVillager;
+        private bool isVillagerSelected = false;
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<VMAldeano> VMaldeanos = new ObservableCollection<VMAldeano>();
@@ -40,6 +45,14 @@ namespace DSI_Hito_5
         public ObservableCollection<ContentControl> CCNodo = new ObservableCollection<ContentControl>();
 
         public ObservableCollection<ContentControl> CCWarNodo = new ObservableCollection<ContentControl>();
+
+        private readonly object myLock = new object();
+        List<Gamepad> myGamepads = new List<Gamepad>();
+        Gamepad mainGamepad = null;
+        GamepadReading reading, prereading;
+        GamepadVibration vibration;
+
+        public DispatcherTimer GamePadTimer = null;
 
         enum Menu
         {
@@ -68,6 +81,100 @@ namespace DSI_Hito_5
                 CCAldeanos.Add(VMaldeano.CC);
             }
 
+            Gamepad.GamepadAdded += (object sender, Gamepad e) =>
+            {
+                lock (myLock)
+                {
+                    bool gamepadInList = myGamepads.Contains(e);
+
+                    if (!gamepadInList)
+                    {
+                        myGamepads.Add(e);
+                    }
+                }
+            };
+
+            Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
+            {
+                lock (myLock)
+                {
+                    int indexRemoved = myGamepads.IndexOf(e);
+
+                    if (indexRemoved > -1)
+                    {
+                        if (mainGamepad == myGamepads[indexRemoved])
+                        {
+                            mainGamepad = null;
+                        }
+
+                        myGamepads.RemoveAt(indexRemoved);
+                    }
+                }
+            };
+
+            GamePadTimerSetup();
+
+        }
+
+        public void GamePadTimerSetup()
+        {
+            GamePadTimer = new DispatcherTimer();
+            GamePadTimer.Tick += GamePadTimer_Tick;// dispatcherTimer_Tick;
+            GamePadTimer.Interval = new TimeSpan(100000); //100000*10^-7s=1cs;
+            GamePadTimer.Start();
+        }
+
+        void GamePadTimer_Tick(object sender, object e)
+        { //Función de respuesta al Timer cada 0.01s
+            if (mainGamepad != null)
+            {
+                LeeMando(); //Lee GamePAd
+                ActualizaUI();
+                    
+            }
+        }
+
+        private void ActualizaUI()
+        {
+            if (mainGamepad != null && WarNode.FocusState != FocusState.Unfocused && reading.Buttons == GamepadButtons.A) 
+            {
+                if (isVillagerSelected)
+                {
+
+                    var ID = selectedVillager;
+                    var parsedID = int.Parse(ID);
+
+                    VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                    CCNodo.Add(foo.CC);
+                    isVillagerSelected = false;
+                }
+                UpgradeButton.Focus(FocusState.Keyboard);
+            }
+            if (mainGamepad != null && WarNode.FocusState != FocusState.Unfocused && reading.Buttons == GamepadButtons.A)
+            {
+                if (isVillagerSelected)
+                {
+
+                    var ID = selectedVillager;
+                    var parsedID = int.Parse(ID);
+
+                    VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                    CCWarNodo.Add(foo.CC);
+                    isVillagerSelected = false;
+                }
+                UpgradeButton.Focus(FocusState.Keyboard);
+            }
+        }
+
+        private void LeeMando()
+        {
+            if (mainGamepad != null)
+            {
+                prereading = reading; //por si hay algún error o para calcular la diferencia
+                reading = mainGamepad.GetCurrentReading();
+            }
         }
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs e)
@@ -79,10 +186,6 @@ namespace DSI_Hito_5
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
             CCWarNodo.Clear();
             CCNodo.Clear();
-            NodeTotal.Visibility = Visibility.Collapsed;
-            WarNodeTotal.Visibility = Visibility.Collapsed;
-            Node.Background = new SolidColorBrush(Colors.MidnightBlue);
-            WarNode.Background = new SolidColorBrush(Colors.MidnightBlue);
         }
         public interface INotifyPropertyChanged
         {
@@ -94,11 +197,16 @@ namespace DSI_Hito_5
             //openMenu = Menu.Upgrade;
             //Frame.Navigate(typeof(Upgrades));
             UpgradesPopup.IsOpen = true;
+            Upgrade0_Click(null, null);
+            Upgrade0.Focus(FocusState.Keyboard);
+
         }
 
         private void VillagersButton_Click(object sender, RoutedEventArgs e)
         {
             VillagersPopup.IsOpen = true;
+            
+            
         }
 
         private void NextTurnButton_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -152,7 +260,7 @@ namespace DSI_Hito_5
             }
         }
 
-
+        #region upgradebutton
         private void Upgrade0_Click(object sender, RoutedEventArgs e)
         {
             selectedUpgrade = 0;
@@ -218,7 +326,7 @@ namespace DSI_Hito_5
             }
         }
 
-
+        #endregion
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             if (moneyCount >= Model.GetMejoraById(selectedUpgrade).Precio)
@@ -267,9 +375,6 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCNodo.Add(foo.CC);
-            Node.Background = new SolidColorBrush(Colors.Transparent);
-            NodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
-            NodeTotal.Content = (int.Parse((string)NodeTotal.Content) + foo.workPoints).ToString();
         }
 
         private async void WarNode_DropOverEvent(object sender, DragEventArgs e)
@@ -280,9 +385,83 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCWarNodo.Add(foo.CC);
-            WarNode.Background = new SolidColorBrush(Colors.Transparent);
-            WarNodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
-            WarNodeTotal.Content = (int.Parse((string)WarNodeTotal.Content) + foo.warPoints).ToString();
+        }
+
+        private void VillagerPopup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ContentControl CCAldeano = e.ClickedItem as ContentControl;
+            //identificar qué aldeano es y establecer el ID del objeto
+            selectedVillager = CCAldeano.Name;
+            //llamar al selector de nodo????
+            Node.Focus(FocusState.Keyboard);
+        }
+
+        private void Node_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void WarNode_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if(isVillagerSelected)
+            {
+                
+                var ID = selectedVillager;
+                var parsedID = int.Parse(ID);
+
+                VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                CCWarNodo.Add(foo.CC);
+                isVillagerSelected = false;
+            }
+           
+            UpgradeButton.Focus(FocusState.Keyboard);
+        }
+
+        private void Node_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == VirtualKey.A)
+            {
+            if (isVillagerSelected)
+            {
+
+                var ID = selectedVillager;
+                var parsedID = int.Parse(ID);
+
+                VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                CCNodo.Add(foo.CC);
+                isVillagerSelected = false;
+            }
+            UpgradeButton.Focus(FocusState.Keyboard);
+
+            }
+            if (e.Key == VirtualKey.GamepadLeftThumbstickDown || e.Key == VirtualKey.GamepadLeftThumbstickLeft || e.Key == VirtualKey.GamepadLeftThumbstickRight || e.Key == VirtualKey.GamepadLeftThumbstickUp) 
+            {
+                WarNode.Focus(FocusState.Keyboard);
+            }
+
+            e.Handled = true;
+        }
+
+        private void WarNode_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (isVillagerSelected)
+            {
+
+                var ID = selectedVillager;
+                var parsedID = int.Parse(ID);
+
+                VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                CCWarNodo.Add(foo.CC);
+                isVillagerSelected = false;
+            }
+            if (e.Key == VirtualKey.GamepadLeftThumbstickDown || e.Key == VirtualKey.GamepadLeftThumbstickLeft || e.Key == VirtualKey.GamepadLeftThumbstickRight || e.Key == VirtualKey.GamepadLeftThumbstickUp)
+            {
+                Node.Focus(FocusState.Keyboard);
+            }
+            UpgradeButton.Focus(FocusState.Keyboard);
         }
     }
 }
