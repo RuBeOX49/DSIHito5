@@ -37,6 +37,10 @@ namespace DSI_Hito_5
 
         public ObservableCollection<ContentControl> CCAldeanos = new ObservableCollection<ContentControl>();
 
+        public ObservableCollection<ContentControl> CCNodo = new ObservableCollection<ContentControl>();
+
+        public ObservableCollection<ContentControl> CCWarNodo = new ObservableCollection<ContentControl>();
+
         enum Menu
         {
             None,
@@ -239,10 +243,10 @@ namespace DSI_Hito_5
 
         private void VillagerPopout_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
-            //definir en código de qué dron estamos hablando
-            VMAldeano Item = e.Items[0] as VMAldeano;
-            //identificar qué dron es
-            string id = Item.Id.ToString();
+            //definir en código de qué aldeano estamos hablando
+            ContentControl CCAldeano = e.Items[0] as ContentControl;
+            //identificar qué aldeano es
+            string id = CCAldeano.Name;
             //establecer el ID del objeto
             e.Data.SetText(id);
             //establecer qué operación queremos hacer
@@ -256,7 +260,17 @@ namespace DSI_Hito_5
 
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
-            Node.Children.Add(foo.CC);
+            CCNodo.Add(foo.CC);
+        }
+
+        private async void WarNode_DropOverEvent(object sender, DragEventArgs e)
+        {
+            var ID = await e.DataView.GetTextAsync();
+            var parsedID = int.Parse(ID);
+
+            VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+            CCWarNodo.Add(foo.CC);
         }
     }
 }
