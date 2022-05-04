@@ -44,20 +44,20 @@ namespace DSI_Hito_5
             {
               Id = 0,
               Nombre = "Aldeano Común",
-              Imagen = "Assets\\Images\\aldeanoComun.PNG"
+              Imagen = "Assets\\aldeanoComun.PNG"
             },
             new Aldeano()
             {
               Id = 1,
               Nombre = "Aldeano Minero",
-              Imagen = "Assets\\Images\\aldeanoMinero.PNG"
+              Imagen = "Assets\\aldeanoMinero.PNG"
             },
            
             new Aldeano()
             {
               Id = 2,
               Nombre = "Aldeano CEO",
-              Imagen = "Assets\\Images\\AldeanoCEO.PNG"
+              Imagen = "Assets\\AldeanoCEO.PNG"
             },
            
         };
@@ -193,6 +193,7 @@ namespace DSI_Hito_5
             ColumnDefinition col3 = new ColumnDefinition();
 
             col1.MaxWidth = 10;
+            col2.MaxWidth = int.MaxValue;
             col3.MaxWidth = 10;
             
             VillagerGrid.ColumnDefinitions.Add(col1);
@@ -204,6 +205,7 @@ namespace DSI_Hito_5
             RowDefinition row2 = new RowDefinition();
 
             row1.MaxHeight = 10;
+            row2.MaxHeight = int.MaxValue;
             row3.MaxHeight = 10;
 
             VillagerGrid.RowDefinitions.Add(row1);
@@ -232,6 +234,8 @@ namespace DSI_Hito_5
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + aldeano.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
+            Img.Height = 50;
+            Img.Width = 50;
             
 
             VillagerGrid.Children.Add(Img);
@@ -242,6 +246,7 @@ namespace DSI_Hito_5
 
             CC.Content = VillagerGrid;
             CC.UseSystemFocusVisuals = true;
+            CC.Name = Id.ToString();
 
         
         }

@@ -37,6 +37,10 @@ namespace DSI_Hito_5
 
         public ObservableCollection<ContentControl> CCAldeanos = new ObservableCollection<ContentControl>();
 
+        public ObservableCollection<ContentControl> CCNodo = new ObservableCollection<ContentControl>();
+
+        public ObservableCollection<ContentControl> CCWarNodo = new ObservableCollection<ContentControl>();
+
         enum Menu
         {
             None,
@@ -73,6 +77,8 @@ namespace DSI_Hito_5
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(turnNumber)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(moneyCount)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
+            CCWarNodo.Clear();
+            CCNodo.Clear();
         }
         public interface INotifyPropertyChanged
         {
@@ -110,18 +116,33 @@ namespace DSI_Hito_5
             if (Model.GetMejoraById(selectedUpgrade).Desbloqueada && !Model.GetMejoraById(selectedUpgrade).Comprada)
             {
                 UpgradePriceText.Text = Model.GetMejoraById(selectedUpgrade).Precio.ToString();
+                DollarSign.Visibility = Visibility.Visible;
                 BuyButton.Visibility = Visibility.Visible;
+
+                if (moneyCount < Model.GetMejoraById(selectedUpgrade).Precio)
+                {
+                    BuyButton.Background = new SolidColorBrush(Colors.DimGray);
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    BuyButton.Background = new SolidColorBrush(Colors.RoyalBlue);
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
             else
             {
+                DollarSign.Visibility = Visibility.Collapsed;
                 BuyButton.Visibility = Visibility.Collapsed;
 
                 if (Model.GetMejoraById(selectedUpgrade).Comprada)
                 {
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.White);
                     UpgradePriceText.Text = "Comprada!";
                 }
                 else
                 {
+                    UpgradePriceText.Foreground = new SolidColorBrush(Colors.Red);
                     UpgradePriceText.Text = "Bloqueada";
                 }
             }
@@ -224,10 +245,10 @@ namespace DSI_Hito_5
 
         private void VillagerPopout_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
-            //definir en código de qué dron estamos hablando
-            VMAldeano Item = e.Items[0] as VMAldeano;
-            //identificar qué dron es
-            string id = Item.Id.ToString();
+            //definir en código de qué aldeano estamos hablando
+            ContentControl CCAldeano = e.Items[0] as ContentControl;
+            //identificar qué aldeano es
+            string id = CCAldeano.Name;
             //establecer el ID del objeto
             e.Data.SetText(id);
             //establecer qué operación queremos hacer
@@ -241,7 +262,17 @@ namespace DSI_Hito_5
 
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
-            Node.Children.Add(foo.CC);
+            CCNodo.Add(foo.CC);
+        }
+
+        private async void WarNode_DropOverEvent(object sender, DragEventArgs e)
+        {
+            var ID = await e.DataView.GetTextAsync();
+            var parsedID = int.Parse(ID);
+
+            VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+            CCWarNodo.Add(foo.CC);
         }
     }
 }
