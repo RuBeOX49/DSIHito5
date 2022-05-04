@@ -44,20 +44,20 @@ namespace DSI_Hito_5
             {
               Id = 0,
               Nombre = "Aldeano Común",
-              Imagen = "Assets\\Images\\aldeanoComun.PNG"
+              Imagen = "Assets\\aldeanoComun.PNG"
             },
             new Aldeano()
             {
               Id = 1,
               Nombre = "Aldeano Minero",
-              Imagen = "Assets\\Images\\aldeanoMinero.PNG"
+              Imagen = "Assets\\aldeanoMinero.PNG"
             },
            
             new Aldeano()
             {
               Id = 2,
               Nombre = "Aldeano CEO",
-              Imagen = "Assets\\Images\\AldeanoCEO.PNG"
+              Imagen = "Assets\\AldeanoCEO.PNG"
             },
            
         };
@@ -234,8 +234,8 @@ namespace DSI_Hito_5
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + aldeano.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
-            Img.MaxHeight = row2.ActualHeight;
-            Img.MaxWidth = col2.ActualWidth;
+            Img.Height = 50;
+            Img.Width = 50;
             
 
             VillagerGrid.Children.Add(Img);

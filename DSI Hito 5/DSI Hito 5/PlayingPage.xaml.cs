@@ -77,6 +77,8 @@ namespace DSI_Hito_5
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(turnNumber)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(moneyCount)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
+            CCWarNodo.Clear();
+            CCNodo.Clear();
         }
         public interface INotifyPropertyChanged
         {
