@@ -30,6 +30,19 @@
             <StackPanel Grid.Row="0"
                     Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
+                <Button 
+                    x:Name="NodeTotal"
+                    Click="VillagersButton_Click"
+                    CornerRadius="50"
+                    Background="MidnightBlue"
+                    Foreground="DeepSkyBlue"
+                    HorizontalAlignment="Center"
+                    Content="0"
+                    FontSize="40"
+                    VerticalContentAlignment="Center"
+                    Height="70" Width="70"
+                    Visibility="Collapsed"/>
+
                 <ListView x:Name="Node"
                     DragOver="Node_Dragover" Drop="Node_DropOverEvent"  MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -59,15 +72,28 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="UpgradeButton" Height="200" Width="200" Margin="0,0,20,0" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0" Background="Transparent">
+                <Button x:Name="UpgradeButton" Height="170" Width="170" Margin="0,0,20,0" Click="UpgradeButton_Click" IsTabStop="True" TabIndex="0" Background="Transparent">
                     <Image Source="/Assets/investNew.PNG"/>
                 </Button>
-                <Button x:Name="VillagersButton" Height="200" Width="200" Margin="20,0,0,0" Click="VillagersButton_Click" IsTabStop="True" TabIndex="1" Background="Transparent">
+                <Button x:Name="VillagersButton" Height="170" Width="170" Margin="20,0,0,0" Click="VillagersButton_Click" IsTabStop="True" TabIndex="1" Background="Transparent">
                     <Image Source="/Assets/villagers.PNG"/>
                 </Button>
             </StackPanel>
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
 
+                <Button 
+                    x:Name="WarNodeTotal"
+                    Click="VillagersButton_Click"
+                    CornerRadius="50"
+                    Background="MidnightBlue"
+                    Foreground="IndianRed"
+                    HorizontalAlignment="Center"
+                    Content="0"
+                    FontSize="40"
+                    VerticalContentAlignment="Center"
+                    Height="70" Width="70"
+                    Visibility="Collapsed"/>
+                
                 <ListView x:Name="WarNode" HorizontalAlignment="Center"
                     DragOver="Node_Dragover" Drop="WarNode_DropOverEvent"  MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
