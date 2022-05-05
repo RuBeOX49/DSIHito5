@@ -29,8 +29,21 @@
 
             <StackPanel Grid.Row="0"
                     Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                
-                    <ListView x:Name="Node"
+
+                <Button 
+                    x:Name="NodeTotal"
+                    Click="VillagersButton_Click"
+                    CornerRadius="50"
+                    Background="MidnightBlue"
+                    Foreground="DeepSkyBlue"
+                    HorizontalAlignment="Center"
+                    Content="0"
+                    FontSize="40"
+                    VerticalContentAlignment="Center"
+                    Height="70" Width="70"
+                    Visibility="Collapsed"/>
+
+                <ListView x:Name="Node"
                               IsTabStop="True"
                                 XYFocusDown="{x:Bind WarNode}"
                                 XYFocusLeft="{x:Bind WarNode}"
@@ -53,16 +66,16 @@
                     </ListView>
                 
 
-                <Button 
+                <!--<Button 
                     Click="VillagersButton_Click"
                     CornerRadius="50"
                     Background="MidnightBlue"
                     Foreground="White"
                     HorizontalAlignment="Center"
-                    Content="0"
+                    Content="{x:Bind NodeCount, Mode=OneWay}"
                     FontSize="40"
                     VerticalContentAlignment="Center"
-                    Height="70" Width="70"/>
+                    Height="70" Width="70"/>-->
 
             </StackPanel>
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
@@ -163,8 +176,8 @@
             </StackPanel>
 
             <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0">
-                <Popup x:Name="UpgradesPopup" IsOpen="False" IsLightDismissEnabled="True" RelativePanel.AlignTopWithPanel="True" >
-                    <StackPanel Background="MidnightBlue" CornerRadius="10">
+                <Popup x:Name="UpgradesPopup" IsOpen="False" IsLightDismissEnabled="True" RelativePanel.AlignTopWithPanel="True">
+                    <StackPanel Background="MidnightBlue" CornerRadius="10"  MinWidth="700" MinHeight="300">
                         <!--<MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="150" CornerRadius="30"/>-->
 
                         <Grid>
@@ -311,7 +324,7 @@
         </Grid>
         <RelativePanel  HorizontalAlignment="Center">
             <Popup x:Name="PausePopup" IsOpen="False" IsLightDismissEnabled="True" Margin="0,200,650,700">
-                <StackPanel Background="SlateGray" CornerRadius="30"  Width="700" Height="500">
+                <StackPanel Background="MidnightBlue" CornerRadius="30"  Width="700" Height="500">
                     <TextBlock Text="Pause" FontSize="50" HorizontalAlignment="Center"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
                         <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
@@ -320,7 +333,7 @@
                             <SymbolIcon Symbol="Mute"/>
                         </Button>
                     </StackPanel>
-                    <Button x:Name="SurrenderButton" HorizontalAlignment="Center" Content="Surrender" FontSize="30" BorderBrush="Red"
+                    <Button x:Name="SurrenderButton" HorizontalAlignment="Center" Content="Surrender" FontSize="30" Background="IndianRed"
                             CornerRadius="20" Margin="0,100,0,0" Width="250" Height="100" Click="SurrenderButton_Click"/>
                     <RelativePanel HorizontalAlignment="Center"  RenderTransformOrigin="0.5,0.5">
                         <RelativePanel.RenderTransform>
@@ -330,7 +343,7 @@
                             <StackPanel Background="DarkSlateGray" CornerRadius="20"  Width="400" Height="200">
                                 <TextBlock Text="Do you want to surrender?" FontSize="30" HorizontalAlignment="Center" Margin="0,15,0,0"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
-                                    <Button x:Name="YesSurrender" Click="YesSurrender_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" BorderBrush="Red" CornerRadius="20"/>
+                                    <Button x:Name="YesSurrender" Click="YesSurrender_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" Background="IndianRed" CornerRadius="20"/>
                                     <Button x:Name="NoSurrender" Click="NoSurrender_Click" Content="No" Width="170" Height="90" Margin="5,0,0,0" FontSize="40" CornerRadius="20"/>
                                 </StackPanel>
                             </StackPanel>

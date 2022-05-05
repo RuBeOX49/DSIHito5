@@ -34,6 +34,8 @@ namespace DSI_Hito_5
         public int selectedUpgrade;
         double volumeSaved;
 
+        public int NodeCount;
+
         public string selectedVillager;
         private bool isVillagerSelected = false;
         
@@ -71,6 +73,7 @@ namespace DSI_Hito_5
             moneyCount = 10;
             moneyPerRound = 5;
             selectedUpgrade = 0;
+            NodeCount = 0;
             UpgradeNameText.Text = "";
             UpgradeDescriptionText.Text = "";
             PropertyChanged += SetUpgradeInfo;
@@ -187,6 +190,13 @@ namespace DSI_Hito_5
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(openMenu)));
             CCWarNodo.Clear();
             CCNodo.Clear();
+            NodeCount = 0;
+            NodeTotal.Visibility = Visibility.Collapsed;
+            NodeTotal.Content = "0";
+            WarNodeTotal.Content = "0";
+            WarNodeTotal.Visibility = Visibility.Collapsed;
+            Node.Background = new SolidColorBrush(Colors.MidnightBlue);
+            WarNode.Background = new SolidColorBrush(Colors.MidnightBlue);
         }
         public interface INotifyPropertyChanged
         {
@@ -376,6 +386,10 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCNodo.Add(foo.CC);
+            Node.Background = new SolidColorBrush(Colors.Transparent);
+            NodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
+            NodeTotal.Content = (int.Parse((string)NodeTotal.Content) + foo.workPoints).ToString();
+            NodeCount++;
         }
 
         private async void WarNode_DropOverEvent(object sender, DragEventArgs e)
@@ -386,6 +400,9 @@ namespace DSI_Hito_5
             VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
 
             CCWarNodo.Add(foo.CC);
+            WarNode.Background = new SolidColorBrush(Colors.Transparent);
+            WarNodeTotal.SetValue(VisibilityProperty, Visibility.Visible);
+            WarNodeTotal.Content = (int.Parse((string)WarNodeTotal.Content) + foo.warPoints).ToString();
         }
 
         private void VillagerPopup_ItemClick(object sender, ItemClickEventArgs e)
