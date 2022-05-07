@@ -66,16 +66,6 @@
                     </ListView>
                 
 
-                <!--<Button 
-                    Click="VillagersButton_Click"
-                    CornerRadius="50"
-                    Background="MidnightBlue"
-                    Foreground="White"
-                    HorizontalAlignment="Center"
-                    Content="{x:Bind NodeCount, Mode=OneWay}"
-                    FontSize="40"
-                    VerticalContentAlignment="Center"
-                    Height="70" Width="70"/>-->
 
             </StackPanel>
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
@@ -178,7 +168,6 @@
             <RelativePanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0">
                 <Popup x:Name="UpgradesPopup" IsOpen="False" IsLightDismissEnabled="True" RelativePanel.AlignTopWithPanel="True">
                     <StackPanel Background="MidnightBlue" CornerRadius="10"  MinWidth="700" MinHeight="300">
-                        <!--<MenuFlyoutPresenter Background="MidnightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="150" CornerRadius="30"/>-->
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -288,6 +277,7 @@
                 <Popup x:Name="VillagersPopup" IsOpen="False" IsLightDismissEnabled="True"  VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <ListView Background="MidnightBlue" HorizontalAlignment="Stretch"
                               VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"
+                              CornerRadius="10"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               ScrollViewer.HorizontalScrollMode="Enabled"
                               ScrollViewer.IsHorizontalRailEnabled="True"
@@ -325,7 +315,7 @@
         <RelativePanel  HorizontalAlignment="Center">
             <Popup x:Name="PausePopup" IsOpen="False" IsLightDismissEnabled="True" Margin="0,200,650,700">
                 <StackPanel Background="MidnightBlue" CornerRadius="30"  Width="700" Height="500">
-                    <TextBlock Text="Pause" FontSize="50" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Pause" FontSize="50" HorizontalAlignment="Center" Margin="0,50,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
                         <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
                         <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>

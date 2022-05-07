@@ -52,5 +52,20 @@ namespace DSI_Hito_5
         {
             Frame.Navigate(typeof(Settings));
         }
+
+        private void QuitButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuitPopup.IsOpen = true;
+        }
+
+        private void YesQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void NoQuit_Click(object sender, RoutedEventArgs e)
+        {
+            QuitPopup.IsOpen = false;
+        }
     }
 }

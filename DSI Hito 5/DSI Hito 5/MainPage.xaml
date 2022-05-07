@@ -59,6 +59,8 @@
                     FontSize="30"/>
             </Button>
             <Button
+                x:Name="QuitButton"
+                Click="QuitButton_Click"
                 MaxHeight="50"
                 MaxWidth="300"
                 HorizontalAlignment="Center"
@@ -71,5 +73,20 @@
                     FontSize="30"/>
             </Button>
         </StackPanel>
+        <RelativePanel HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            <RelativePanel.RenderTransform>
+                <CompositeTransform TranslateX="-300" TranslateY="500"/>
+            </RelativePanel.RenderTransform>
+
+            <Popup x:Name="QuitPopup" IsOpen="False" IsLightDismissEnabled="True">
+                <StackPanel Background="DarkSlateGray" CornerRadius="20"  Width="600" Height="250">
+                    <TextBlock Text="Return to desktop?" FontSize="30" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                        <Button x:Name="YesQuit" Click="YesQuit_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" Background="IndianRed" CornerRadius="20"/>
+                        <Button x:Name="NoQuit" Click="NoQuit_Click" Content="No" Width="170" Height="90" Margin="5,0,0,0" FontSize="40" CornerRadius="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </Popup>
+        </RelativePanel>
     </Grid>
 </Page>
