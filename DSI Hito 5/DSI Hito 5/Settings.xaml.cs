@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
-
+using Windows.System;
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace DSI_Hito_5
@@ -67,6 +67,11 @@ namespace DSI_Hito_5
                 graphics++;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(graphics)));
             }
+        }
+
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.OriginalKey == VirtualKey.GamepadB && Frame.CanGoBack) Frame.GoBack();
         }
     }
 }

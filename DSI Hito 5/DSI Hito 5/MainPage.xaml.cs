@@ -56,6 +56,7 @@ namespace DSI_Hito_5
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             QuitPopup.IsOpen = true;
+            NoQuit.Focus(FocusState.Programmatic);
         }
 
         private void YesQuit_Click(object sender, RoutedEventArgs e)
