@@ -395,6 +395,7 @@ namespace DSI_Hito_5
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             PausePopup.IsOpen = true;
+            VolumeAdjust.Focus(FocusState.Keyboard);
         }
 
         private void MuteButton_Click(object sender, RoutedEventArgs e)
@@ -420,6 +421,7 @@ namespace DSI_Hito_5
         private void SurrenderButton_Click(object sender, RoutedEventArgs e)
         {
             SurrenderPopup.IsOpen = true;
+            NoSurrender.Focus(FocusState.Keyboard);
         }
 
         private void PlaceWarNode_Click(object sender, RoutedEventArgs e)

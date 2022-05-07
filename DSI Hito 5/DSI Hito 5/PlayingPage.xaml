@@ -108,7 +108,7 @@
                 <Button x:Name="UpgradeButton" Height="200" Width="200" Margin="0,0,20,0" Click="UpgradeButton_Click" IsTabStop="True" XYFocusUp="{x:Bind UpgradeButton}" TabIndex="0" Background="Transparent">
                     <Image Source="/Assets/investNew.PNG"/>
                 </Button>
-                <Button x:Name="VillagersButton" Height="200" Width="200" Margin="20,0,0,0" Click="VillagersButton_Click" IsTabStop="True" XYFocusUp="{x:Bind VillagersButton}" TabIndex="1" Background="Transparent">
+                <Button x:Name="VillagersButton" Height="200" Width="200" Margin="20,0,0,0" Click="VillagersButton_Click" IsTabStop="True" XYFocusUp="{x:Bind SettingsButton}" TabIndex="1" Background="Transparent">
                     <Image Source="/Assets/villagers.PNG"/>
                 </Button>
             </StackPanel>
@@ -121,7 +121,7 @@
                     Height="100" Width="100" 
                     Margin="0,0,20,0"
                     Click="EndTurnButton_Click"
-                    XYFocusUp="{x:Bind EndButton}"
+                    XYFocusUp="{x:Bind SettingsButton}"
                     CornerRadius="10"
                     BorderBrush="SpringGreen" BorderThickness="10" IsTabStop="True" TabIndex="2"
                     KeyDown="NextTurnButton_KeyDown"/>
@@ -314,8 +314,8 @@
                     <TextBlock Text="Pause" FontSize="50" HorizontalAlignment="Center" Margin="0,50,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,100,0,0">
                         <SymbolIcon Symbol="Audio" Margin="0,0,10,0"/>
-                        <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
-                        <Button x:Name="MuteButton" Click="MuteButton_Click" Margin="10,0,0,0" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
+                        <Slider IsTabStop="True" x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
+                        <Button IsTabStop="True" x:Name="MuteButton" Click="MuteButton_Click" Margin="10,0,0,0" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
                             <SymbolIcon Symbol="Mute"/>
                         </Button>
                     </StackPanel>
@@ -329,8 +329,8 @@
                             <StackPanel Background="DarkSlateGray" CornerRadius="20"  Width="400" Height="200">
                                 <TextBlock Text="Do you want to surrender?" FontSize="30" HorizontalAlignment="Center" Margin="0,15,0,0"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
-                                    <Button x:Name="YesSurrender" Click="YesSurrender_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" Background="IndianRed" CornerRadius="20"/>
-                                    <Button x:Name="NoSurrender" Click="NoSurrender_Click" Content="No" Width="170" Height="90" Margin="5,0,0,0" FontSize="40" CornerRadius="20"/>
+                                    <Button IsTabStop="True" x:Name="YesSurrender" Click="YesSurrender_Click" Content="Yes" Width="170" Height="90" Margin="0,0,5,0" FontSize="40" Background="IndianRed" CornerRadius="20"/>
+                                    <Button IsTabStop="True" x:Name="NoSurrender" Click="NoSurrender_Click" Content="No" Width="170" Height="90" Margin="5,0,0,0" FontSize="40" CornerRadius="20"/>
                                 </StackPanel>
                             </StackPanel>
                         </Popup>
