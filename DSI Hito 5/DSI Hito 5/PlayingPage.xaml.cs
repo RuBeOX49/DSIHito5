@@ -49,13 +49,7 @@ namespace DSI_Hito_5
 
         public ObservableCollection<ContentControl> CCWarNodo = new ObservableCollection<ContentControl>();
 
-        private readonly object myLock = new object();
-        List<Gamepad> myGamepads = new List<Gamepad>();
-        Gamepad mainGamepad = null;
-        GamepadReading reading, prereading;
-        GamepadVibration vibration;
-
-        public DispatcherTimer GamePadTimer = null;
+        
 
         enum Menu
         {
@@ -85,101 +79,13 @@ namespace DSI_Hito_5
                 CCAldeanos.Add(VMaldeano.CC);
             }
 
-            Gamepad.GamepadAdded += (object sender, Gamepad e) =>
-            {
-                lock (myLock)
-                {
-                    bool gamepadInList = myGamepads.Contains(e);
 
-                    if (!gamepadInList)
-                    {
-                        myGamepads.Add(e);
-                    }
-                }
-            };
-
-            Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
-            {
-                lock (myLock)
-                {
-                    int indexRemoved = myGamepads.IndexOf(e);
-
-                    if (indexRemoved > -1)
-                    {
-                        if (mainGamepad == myGamepads[indexRemoved])
-                        {
-                            mainGamepad = null;
-                        }
-
-                        myGamepads.RemoveAt(indexRemoved);
-                    }
-                }
-            };
-
-            GamePadTimerSetup();
 
         }
 
-        public void GamePadTimerSetup()
-        {
-            GamePadTimer = new DispatcherTimer();
-            GamePadTimer.Tick += GamePadTimer_Tick;// dispatcherTimer_Tick;
-            GamePadTimer.Interval = new TimeSpan(100000); //100000*10^-7s=1cs;
-            GamePadTimer.Start();
-        }
+        
 
-        void GamePadTimer_Tick(object sender, object e)
-        { //Función de respuesta al Timer cada 0.01s
-            if (mainGamepad != null)
-            {
-                LeeMando(); //Lee GamePAd
-                ActualizaUI();
-                    
-            }
-        }
-
-        private void ActualizaUI()
-        {
-            if (mainGamepad != null && WarNode.FocusState != FocusState.Unfocused && reading.Buttons == GamepadButtons.A) 
-            {
-                if (isVillagerSelected)
-                {
-
-                    var ID = selectedVillager;
-                    var parsedID = int.Parse(ID);
-
-                    VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
-
-                    CCNodo.Add(foo.CC);
-                    isVillagerSelected = false;
-                }
-                UpgradeButton.Focus(FocusState.Keyboard);
-            }
-            if (mainGamepad != null && WarNode.FocusState != FocusState.Unfocused && reading.Buttons == GamepadButtons.A)
-            {
-                if (isVillagerSelected)
-                {
-
-                    var ID = selectedVillager;
-                    var parsedID = int.Parse(ID);
-
-                    VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
-
-                    CCWarNodo.Add(foo.CC);
-                    isVillagerSelected = false;
-                }
-                UpgradeButton.Focus(FocusState.Keyboard);
-            }
-        }
-
-        private void LeeMando()
-        {
-            if (mainGamepad != null)
-            {
-                prereading = reading; //por si hay algún error o para calcular la diferencia
-                reading = mainGamepad.GetCurrentReading();
-            }
-        }
+        
 
         private void EndTurnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -411,7 +317,11 @@ namespace DSI_Hito_5
             //identificar qué aldeano es y establecer el ID del objeto
             selectedVillager = CCAldeano.Name;
             //llamar al selector de nodo????
-            Node.Focus(FocusState.Keyboard);
+            isVillagerSelected = true;
+            BotonNode.Visibility = Visibility.Visible;
+            BotonWarNode.Visibility = Visibility.Visible;
+
+            BotonNode.Focus(FocusState.Keyboard);
         }
 
         private void Node_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -510,6 +420,48 @@ namespace DSI_Hito_5
         private void SurrenderButton_Click(object sender, RoutedEventArgs e)
         {
             SurrenderPopup.IsOpen = true;
+        }
+
+        private void PlaceWarNode_Click(object sender, RoutedEventArgs e)
+        {
+            if (isVillagerSelected)
+            {
+
+                var ID = selectedVillager;
+                var parsedID = int.Parse(ID);
+
+                VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                CCWarNodo.Add(foo.CC);
+                isVillagerSelected = false;
+            }
+
+            BotonNode.Visibility = Visibility.Collapsed;
+            BotonWarNode.Visibility = Visibility.Collapsed;
+            VillagersPopup.IsOpen = false;
+
+            VillagersButton.Focus(FocusState.Keyboard);
+        }
+
+        private void PlaceNode_Click(object sender, RoutedEventArgs e)
+        {
+            if (isVillagerSelected)
+            {
+
+                var ID = selectedVillager;
+                var parsedID = int.Parse(ID);
+
+                VMAldeano foo = new VMAldeano(Model.GetAldeanoById(parsedID));
+
+                CCNodo.Add(foo.CC);
+                isVillagerSelected = false;
+            }
+
+            BotonNode.Visibility = Visibility.Collapsed;
+            BotonWarNode.Visibility = Visibility.Collapsed;
+            VillagersPopup.IsOpen = false;
+
+            VillagersButton.Focus(FocusState.Keyboard);
         }
     }
 }

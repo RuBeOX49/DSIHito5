@@ -44,11 +44,7 @@
                     Visibility="Collapsed"/>
 
                 <ListView x:Name="Node"
-                              IsTabStop="True"
-                                XYFocusDown="{x:Bind WarNode}"
-                                XYFocusLeft="{x:Bind WarNode}"
-                                XYFocusRight="{x:Bind WarNode}"
-                                XYFocusUp="{x:Bind WarNode}"
+                              
                               
                     DragOver="Node_Dragover" Drop="Node_DropOverEvent"  MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -58,13 +54,13 @@
                           AllowDrop="True"
                               
                           ItemsSource="{x:Bind CCNodo, Mode=OneWay}">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                    </ListView>
-                
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+
 
 
             </StackPanel>
@@ -84,12 +80,8 @@
                     Visibility="Collapsed"/>
 
                 <ContentControl HorizontalAlignment="Center" x:Name="WarNodeContentControl">
-                <ListView x:Name="WarNode" HorizontalAlignment="Center"
-                              IsTabStop="True"  
-                              XYFocusDown="{x:Bind Node}"
-                              XYFocusLeft="{x:Bind Node}"
-                              XYFocusRight="{x:Bind Node}"
-                              XYFocusUp="{x:Bind Node}"
+                    <ListView x:Name="WarNode" HorizontalAlignment="Center"
+                              
                     DragOver="Node_Dragover" Drop="WarNode_DropOverEvent"  MinHeight="100" MinWidth="100" Background="MidnightBlue" CornerRadius="50"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollMode="Enabled"
@@ -275,8 +267,8 @@
             </RelativePanel>
             <RelativePanel Grid.Column="1" Grid.Row="2">
                 <Popup x:Name="VillagersPopup" IsOpen="False" IsLightDismissEnabled="True"  VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <ListView Background="MidnightBlue" HorizontalAlignment="Stretch"
-                              VerticalAlignment="Bottom" Height="150" Margin="200, 0, 200, 50"
+                    <ListView Background="MidnightBlue" HorizontalAlignment="Center"
+                              VerticalAlignment="Bottom" Height="150" Margin="550, 0, 200, 50"
                               CornerRadius="10"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               ScrollViewer.HorizontalScrollMode="Enabled"
@@ -310,6 +302,10 @@
                     </TextBlock>
                 </Popup>
             </StackPanel>
+            <Button x:Name="BotonWarNode" Margin="0,173,0,0"   VerticalAlignment="Top" Grid.Column="2" Background="#FF3C3CE8" HorizontalAlignment="Center" Visibility="Collapsed" Click="PlaceWarNode_Click"
+                    XYFocusDown="{x:Bind BotonNode}" XYFocusLeft="{x:Bind BotonNode}" XYFocusRight="{x:Bind BotonNode}" XYFocusUp="{x:Bind BotonNode}">
+                <SymbolIcon Symbol="AddFriend"/>
+            </Button>
 
         </Grid>
         <RelativePanel  HorizontalAlignment="Center">
@@ -343,5 +339,9 @@
 
             </Popup>
         </RelativePanel>
+        <Button x:Name="BotonNode" Margin="0,296,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF3C3CE8" Click="PlaceNode_Click" Visibility="Collapsed"
+                XYFocusDown="{x:Bind BotonWarNode}" XYFocusLeft="{x:Bind BotonWarNode}" XYFocusRight="{x:Bind BotonWarNode}" XYFocusUp="{x:Bind BotonWarNode}">
+            <SymbolIcon Symbol="AddFriend" />
+        </Button>
     </Grid>
 </Page>
