@@ -115,7 +115,7 @@ namespace DSI_Hito_5
             //Frame.Navigate(typeof(Upgrades));
             UpgradesPopup.IsOpen = true;
             Upgrade0_Click(null, null);
-            Upgrade0.Focus(FocusState.Keyboard);
+            Upgrade0.Focus(FocusState.Programmatic);
 
         }
 
@@ -321,7 +321,7 @@ namespace DSI_Hito_5
             BotonNode.Visibility = Visibility.Visible;
             BotonWarNode.Visibility = Visibility.Visible;
 
-            BotonNode.Focus(FocusState.Keyboard);
+            BotonNode.Focus(FocusState.Programmatic);
         }
 
         private void Node_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -343,7 +343,7 @@ namespace DSI_Hito_5
                 isVillagerSelected = false;
             }
            
-            UpgradeButton.Focus(FocusState.Keyboard);
+            UpgradeButton.Focus(FocusState.Programmatic);
         }
 
         private void Node_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -361,12 +361,12 @@ namespace DSI_Hito_5
                 CCNodo.Add(foo.CC);
                 isVillagerSelected = false;
             }
-            UpgradeButton.Focus(FocusState.Keyboard);
+            UpgradeButton.Focus(FocusState.Programmatic);
 
             }
             if (e.Key == VirtualKey.GamepadLeftThumbstickDown || e.Key == VirtualKey.GamepadLeftThumbstickLeft || e.Key == VirtualKey.GamepadLeftThumbstickRight || e.Key == VirtualKey.GamepadLeftThumbstickUp) 
             {
-                WarNode.Focus(FocusState.Keyboard);
+                WarNode.Focus(FocusState.Programmatic);
             }
 
             e.Handled = true;
@@ -387,9 +387,9 @@ namespace DSI_Hito_5
             }
             if (e.Key == VirtualKey.GamepadLeftThumbstickDown || e.Key == VirtualKey.GamepadLeftThumbstickLeft || e.Key == VirtualKey.GamepadLeftThumbstickRight || e.Key == VirtualKey.GamepadLeftThumbstickUp)
             {
-                Node.Focus(FocusState.Keyboard);
+                Node.Focus(FocusState.Programmatic);
             }
-            UpgradeButton.Focus(FocusState.Keyboard);
+            UpgradeButton.Focus(FocusState.Programmatic);
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -442,7 +442,7 @@ namespace DSI_Hito_5
             BotonWarNode.Visibility = Visibility.Collapsed;
             VillagersPopup.IsOpen = false;
 
-            VillagersButton.Focus(FocusState.Keyboard);
+            VillagersButton.Focus(FocusState.Programmatic);
         }
 
         private void PlaceNode_Click(object sender, RoutedEventArgs e)
@@ -463,7 +463,7 @@ namespace DSI_Hito_5
             BotonWarNode.Visibility = Visibility.Collapsed;
             VillagersPopup.IsOpen = false;
 
-            VillagersButton.Focus(FocusState.Keyboard);
+            VillagersButton.Focus(FocusState.Programmatic);
         }
     }
 }
