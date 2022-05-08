@@ -28,7 +28,8 @@
                     CornerRadius="40"
                     Foreground="White"
                     Loaded="Button_Loaded"
-                    Click="PlayButton_Click">
+                    Click="PlayButton_Click"
+                    Margin="0, 0, 0, 30">
                 <TextBlock
                         Text="PLAY"
                         FontSize="50"/>
