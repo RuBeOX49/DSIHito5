@@ -415,7 +415,7 @@ namespace DSI_Hito_5
 
         private void NoSurrender_Click(object sender, RoutedEventArgs e)
         {
-            PausePopup.IsOpen = false;
+            SurrenderPopup.IsOpen = false;
         }
 
         private void SurrenderButton_Click(object sender, RoutedEventArgs e)

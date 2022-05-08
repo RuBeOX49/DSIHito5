@@ -19,14 +19,18 @@
         </Button>
         <TextBlock Text="Settings" FontSize="40" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="0,140,0,0"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
-            <Button x:Name="DecreaseGraphics" Click="DecreaseGraphics_Click" Margin="0,0,0,40" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
-                <SymbolIcon Symbol="Back"/>
-            </Button>
+            <SymbolIcon Symbol="Video" Margin="0,0,0,60"/>
             <SymbolIcon Symbol="Audio" Margin="0,0,0,20"/>
             <SymbolIcon Symbol="Character" Margin="0,40,0,0" />
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <TextBlock x:Name="GraphicsText" Text="{x:Bind graphics, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,50" FontSize="30"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="DecreaseGraphics" Click="DecreaseGraphics_Click" Margin="0,0,0,35" Background="Transparent" BorderBrush="LightGray" CornerRadius="10">
+                    <SymbolIcon Symbol="Back"/>
+                </Button>
+                <TextBlock x:Name="GraphicsText" Text="{x:Bind graphics, Mode=OneWay}" HorizontalAlignment="Center" Margin="80,0,0,50" FontSize="30"/>
+            </StackPanel>
+            
             <Slider x:Name="VolumeAdjust" Minimum="0" Maximum="10" TickFrequency="1" Width="250" Value="6"/>
             <ComboBox Width="250" Margin="0,50,0,0">
                 <ComboBoxItem IsSelected="True">English</ComboBoxItem>
